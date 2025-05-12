@@ -5,21 +5,10 @@ package objetos;
  * ISBN, descrição, entre outras características.
  */
 public class Livros {
-	private String cod_livro;
-	private String titulo;
-	private String autor;
-	private String descricao;
-	private int precoUnid;
-	private int anopublicacao;
-	private int isbn;
-	private String genero;
-	private String idioma;
-	private String formato;
-	private int paginas;
+	private String cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato, acabamento, corte;
+	private int precoUnid, paginas, quantidade;
 	private float peso;
-	private String acabamento;
-	private String corte;
-	private int quantidade;
+
 
 	/**
 	 * Cadastra um novo livro no sistema.
@@ -117,28 +106,28 @@ public class Livros {
 	/**
 	 * @return o ano de publicação do livro
 	 */
-	public int getPublicacao() {
-		return publicacao;
+	public String getAnoPublicacao() {
+		return anopublicacao;
 	}
 
 	/**
 	 * @param publicacao define o ano de publicação do livro
 	 */
-	public void setPublicacao(int publicacao) {
-		this.publicacao = publicacao;
+	public void setPublicacao(String anopublicacao) {
+		this.anopublicacao = anopublicacao;
 	}
 
 	/**
 	 * @return o número ISBN do livro
 	 */
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
 	/**
 	 * @param isbn define o número ISBN do livro
 	 */
-	public void setIsbn(int isbn) {
+	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
