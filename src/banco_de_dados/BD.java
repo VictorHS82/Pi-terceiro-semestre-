@@ -1,6 +1,6 @@
 package banco_de_dados;
 import java.sql.*;
-public class bd {
+public class BD {
    public Connection connection = null;
    private final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
    private final String DBNAME = "";

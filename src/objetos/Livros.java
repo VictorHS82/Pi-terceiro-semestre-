@@ -6,9 +6,32 @@ package objetos;
  */
 public class Livros {
 	private String cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato, acabamento, corte;
-	private int precoUnid, paginas, quantidade;
-	private float peso;
+	private int paginas, quantidade;
+	private float peso, precoUnid;
 
+	
+    
+	
+	public Livros(String cod_livro, String titulo, String autor, String descricao, String anopublicacao, String isbn,
+			String genero, String idioma, String formato, String acabamento, String corte, int paginas, int quantidade,
+			float peso, float precoUnid) {
+		super();
+		this.cod_livro = cod_livro;
+		this.titulo = titulo;
+		this.autor = autor;
+		this.descricao = descricao;
+		this.anopublicacao = anopublicacao;
+		this.isbn = isbn;
+		this.genero = genero;
+		this.idioma = idioma;
+		this.formato = formato;
+		this.acabamento = acabamento;
+		this.corte = corte;
+		this.paginas = paginas;
+		this.quantidade = quantidade;
+		this.peso = peso;
+		this.precoUnid = precoUnid;
+	}
 
 	/**
 	 * Cadastra um novo livro no sistema.
@@ -92,14 +115,14 @@ public class Livros {
 	/**
 	 * @return o preço unitário do livro
 	 */
-	public int getPrecoUnid() {
+	public float getPrecoUnid() {
 		return precoUnid;
 	}
 
 	/**
 	 * @param precoUnid define o preço unitário do livro
 	 */
-	public void setPrecoUnid(int precoUnid) {
+	public void setPrecoUnid(float precoUnid) {
 		this.precoUnid = precoUnid;
 	}
 
