@@ -22,7 +22,7 @@ public class BD {
 		   return false;
 	   }
    }
-   
+
    public void close() {
 	   try {
 		   connection.close();
