@@ -1,5 +1,7 @@
 package interfaces;
 
+import java.util.List;
+
 import banco_de_dados.LivroDAO;
 import objetos.Livros;
 
@@ -7,12 +9,42 @@ import objetos.Livros;
 public class ConsumirLivros {
 
 	public static void main(String[] args) {
+		//cadastrar();
+		//alterar();
+		listar();
+	}
+	
+	public static void cadastrar() {	
 		LivroDAO dao = new LivroDAO();
 		
 		Livros livro = new Livros(
-		"001", "Java Profissional", "Carlos Souza", "Livro Avançado de Java",
+		"002", "Python", "Carlos Souza", "Livro Avançado de Java",
 		"2024", "43554545", "Programação", "Português", "Digital", 550, 7, 0.85f, 89.90f
 		);
 		dao.cadastrarLivro(livro);		
+	}
+	
+	public static void alterar() {
+		LivroDAO dao = new LivroDAO();
+		
+		Livros livro = new Livros(
+		"002", "Python", "Marco Geraldo", "Livro Avançado de Java",
+		"2024", "43554545", "Programação", "Português", "Digital", 550, 7, 0.85f, 89.90f
+		);
+		dao.atualizarLivro(livro);	
+	}
+
+	public static void listar() {
+		LivroDAO dao = new LivroDAO();
+			
+		List<Livros> lista = dao.listarTodos();
+		for (Livros livro : lista) {
+			System.out.println("Código: " + livro.getCod_livro());
+			System.out.println("Código: " + livro.getTitulo());
+			System.out.println("Código: " + livro.getAutor());
+			System.out.println("Quantidade: " + livro.getQuantidade());
+			System.out.println("------");
+			//Se necessário, adicionar os prints das outras informações
+		}
 	}
 }

@@ -26,9 +26,9 @@ private final BD bd = new BD();
  private static String consultar_livro = " SELECT * FROM LIVRO "
 		 + "WHERE cod_livro = ?";
  
- private static String alterar_livro = " UPDATE LIVRO "
-		 + " titulo = ?, autor = ?, descricao = ?, anopublicacao = ?, isbn = ?, genero = ?, idioma = ?, formato = ?"
-		 + " acabamento = ?, corte = ?, paginas = ?, quantidade = ?, peso = ?, preco_unitario = ?)"
+ private static String alterar_livro = " UPDATE LIVRO SET"
+		 + " titulo = ?, autor = ?, descricao = ?, anopublicacao = ?, isbn = ?, genero = ?, idioma = ?, formato = ?,"
+		 + " paginas = ?, quantidade = ?, peso = ?, preco_unitario = ?"
 		 + " WHERE cod_livro = ?";
  
  private static String deletar_livro = " DELETE * FROM * LIVRO "
@@ -36,7 +36,7 @@ private final BD bd = new BD();
 
 private static String consultar_estoque = "SELECT cod_livro, ttitulo, quantidade FROM LIVRO";
 
-private static String listar_tudo = "SELECT * FROM livros";
+private static String listar_tudo = "SELECT * FROM LIVRO";
  
 public LivroDAO() {
 	bd.getConnection();

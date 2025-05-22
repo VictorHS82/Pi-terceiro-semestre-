@@ -31,29 +31,6 @@ public class Livros {
 	}
 
 	/**
-	 * Cadastra um novo livro no sistema.
-	 */
-	private static void cadastrar() {
-		
-	}
-
-	/**
-	 * Modifica os dados de um livro existente.
-	 * (Método ainda não implementado)
-	 */
-	private static void modificarLivro() {
-		
-	}
-
-	/**
-	 * Verifica a quantidade de livros disponíveis em estoque.
-	 * (Método ainda não implementado)
-	 */
-	private static void verificarestoque() {
-		
-	}
-
-	/**
 	 * @return o código do livro
 	 */
 	public String getCod_livro() {
