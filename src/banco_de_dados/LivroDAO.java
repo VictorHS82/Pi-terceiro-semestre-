@@ -5,32 +5,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 import objetos.Livros;
+
+/**
+ * Classe DAO (Data Acess Object) da classe Livro.
+ * Capaz de manipular a entidade livro do Banco de dados
+ */
+
 public class LivroDAO {
 
 private final BD bd = new BD();
 
+//Strings de consultas SQL, servem para cadastrar, cosnultar, alterar e excluir um livro.
+//cosnultar estoque ecnontra somente as informações da ID, título e quantidade em estoque de um livro 
+//listar tudo pega todas as infromações disponivéis da entidade livro
  private static String cadastrar_livro = " INSERT INTO LIVRO "
 		 + "(cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato,"
-		 + "acabamento, corte, paginas, quantidade, peso, precoUnid)"
-		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		 + "paginas, quantidade, peso, preco_unitario)"
+		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
  
  private static String consultar_livro = " SELECT * FROM LIVRO "
 		 + "WHERE cod_livro = ?";
  
  private static String alterar_livro = " UPDATE LIVRO "
 		 + " titulo = ?, autor = ?, descricao = ?, anopublicacao = ?, isbn = ?, genero = ?, idioma = ?, formato = ?"
-		 + " acabamento = ?, corte = ?, paginas = ?, quantidade = ?, peso = ?, precoUnid = ?)"
+		 + " acabamento = ?, corte = ?, paginas = ?, quantidade = ?, peso = ?, preco_unitario = ?)"
 		 + " WHERE cod_livro = ?";
  
  private static String deletar_livro = " DELETE * FROM * LIVRO "
 		 + "WHERE ID = ?";
 
 private static String consultar_estoque = "SELECT cod_livro, ttitulo, quantidade FROM LIVRO";
+
+private static String listar_tudo = "SELECT * FROM livros";
  
 public LivroDAO() {
 	bd.getConnection();
 }
 
+/**
+ * Cadastra um livro no banco de dados
+ * @param livros recebe um novo objeto livro
+ * @return true or false
+ */
 public boolean cadastrarLivro(Livros livros) {
 	String query = cadastrar_livro;
 	try { PreparedStatement preparedstatement = bd.connection.prepareStatement(query);
@@ -45,13 +61,10 @@ public boolean cadastrarLivro(Livros livros) {
 		preparedstatement.setString(i++, livros.getGenero());
 		preparedstatement.setString(i++, livros.getIdioma());
 		preparedstatement.setString(i++, livros.getFormato());
-		preparedstatement.setString(i++, livros.getAcabamento());
-		preparedstatement.setString(i++, livros.getCorte());
 		preparedstatement.setLong(i++, livros.getPaginas());
 		preparedstatement.setInt(i++, livros.getQuantidade());
 		preparedstatement.setFloat(i++, livros.getPeso());
 		preparedstatement.setFloat(i++, livros.getPrecoUnid());
-		
 		preparedstatement.executeUpdate();
 		bd.connection.commit();
 		return true;
@@ -63,9 +76,13 @@ public boolean cadastrarLivro(Livros livros) {
 	}
 }
 
+/**
+ * Lista todos as tuplas/linhas da entidade livro do banco de dados
+ * @return lista lista com todos os itens cadastrados no banco
+ */
 public List<Livros> listarTodos() {
     List<Livros> lista = new ArrayList<>();
-    String sql = "SELECT * FROM livros";
+    String sql = listar_tudo;
 
     try (PreparedStatement stmt = bd.connection.prepareStatement(sql);
          ResultSet rs = stmt.executeQuery()) {
@@ -81,12 +98,10 @@ public List<Livros> listarTodos() {
                 rs.getString("genero"),
                 rs.getString("idioma"),
                 rs.getString("formato"),
-                rs.getString("acabamento"),
-                rs.getString("corte"),
                 rs.getInt("paginas"),
                 rs.getInt("quantidade"),
                 rs.getFloat("peso"),
-                rs.getFloat("precoUnid")
+                rs.getFloat("preco_unitario")
             );
             lista.add(livro);
         }
@@ -100,6 +115,11 @@ public List<Livros> listarTodos() {
     return lista;
 }
 
+/**
+ * Busca as informações de um livro com base no código fornecido
+ * @param cod cod do livro a ser procurado
+ * @return livro livro quê foi encontrado pela consulta
+ */
 public Livros buscarPorCodigo(String cod) {
     String query = consultar_livro;
     Livros livro = null;
@@ -119,12 +139,10 @@ public Livros buscarPorCodigo(String cod) {
                 rs.getString("genero"),
                 rs.getString("idioma"),
                 rs.getString("formato"),
-                rs.getString("acabamento"),
-                rs.getString("corte"),
                 rs.getInt("paginas"),
                 rs.getInt("quantidade"),
                 rs.getFloat("peso"),
-                rs.getFloat("precoUnid")
+                rs.getFloat("preco_unitario")
             );
         }
 
@@ -138,6 +156,10 @@ public Livros buscarPorCodigo(String cod) {
     return livro;
 }
 
+/**
+ * Busca todas as tuplas/linhas do banco, mas retorna apenas os atributos cod_livro, titulo e quantidade
+ * @return estoque lista com o cod_livro, titulo e quantidade de todas as linhas/tuplas do banco da entidade livro
+ */
 public List<Livros> consultarEstoque() {
 	List<Livros> estoque = new ArrayList<>();
 	String query = consultar_estoque;
@@ -149,8 +171,6 @@ public List<Livros> consultarEstoque() {
 		Livros livro = new Livros(
 		rs.getString("cod_livro"),
 		rs.getString("titulo"),
-		null,
-		null,
 		null,
 		null,
 		null,
@@ -173,6 +193,12 @@ public List<Livros> consultarEstoque() {
 	return estoque;
 }
 
+/**
+ * Atualiza os atributos de um livro
+ * @param livro recebe objeto com os todos os parametros, e verifica quais colunas devem ser alteradas
+ * @return linhasAfetadas mostra quantas infromações foram modificadas
+ * @return false caso a operação falhe
+ */
 public boolean atualizarLivro(Livros livro) {
     String sql = alterar_livro;
 
@@ -186,8 +212,6 @@ public boolean atualizarLivro(Livros livro) {
         stmt.setString(i++, livro.getGenero());
         stmt.setString(i++, livro.getIdioma());
         stmt.setString(i++, livro.getFormato());
-        stmt.setString(i++, livro.getAcabamento());
-        stmt.setString(i++, livro.getCorte());
         stmt.setInt(i++, livro.getPaginas());
         stmt.setInt(i++, livro.getQuantidade());
         stmt.setFloat(i++, livro.getPeso());
@@ -205,7 +229,12 @@ public boolean atualizarLivro(Livros livro) {
     }
 }
 
-    public boolean deletarLivro(String cod_livro) {
+/**
+ * Deleta um livro do banco de dados
+ * @param cod_livro código do livro a ser deletado
+ * @return linhasAfetadas quantida de linhas deletadas
+ */
+public boolean deletarLivro(String cod_livro) {
         String query = deletar_livro;
 
         try (PreparedStatement stmt = bd.connection.prepareStatement(query)) {

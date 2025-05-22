@@ -5,16 +5,16 @@ package objetos;
  * ISBN, descrição, entre outras características.
  */
 public class Livros {
-	private String cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato, acabamento, corte;
+	private String cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato;
 	private int paginas, quantidade;
-	private float peso, precoUnid;
+	private float peso, preco_unitario;
 
 	
     
 	
 	public Livros(String cod_livro, String titulo, String autor, String descricao, String anopublicacao, String isbn,
-			String genero, String idioma, String formato, String acabamento, String corte, int paginas, int quantidade,
-			float peso, float precoUnid) {
+			String genero, String idioma, String formato, int paginas, int quantidade,
+			float peso, float preco_unitario) {
 		super();
 		this.cod_livro = cod_livro;
 		this.titulo = titulo;
@@ -25,12 +25,9 @@ public class Livros {
 		this.genero = genero;
 		this.idioma = idioma;
 		this.formato = formato;
-		this.acabamento = acabamento;
-		this.corte = corte;
 		this.paginas = paginas;
 		this.quantidade = quantidade;
-		this.peso = peso;
-		this.precoUnid = precoUnid;
+		this.preco_unitario = preco_unitario;
 	}
 
 	/**
@@ -116,14 +113,14 @@ public class Livros {
 	 * @return o preço unitário do livro
 	 */
 	public float getPrecoUnid() {
-		return precoUnid;
+		return preco_unitario;
 	}
 
 	/**
 	 * @param precoUnid define o preço unitário do livro
 	 */
-	public void setPrecoUnid(float precoUnid) {
-		this.precoUnid = precoUnid;
+	public void setPrecoUnid(float preco_unitario) {
+		this.preco_unitario = preco_unitario;
 	}
 
 	/**
@@ -222,34 +219,6 @@ public class Livros {
 	 */
 	public void setPeso(float peso) {
 		this.peso = peso;
-	}
-
-	/**
-	 * @return o tipo de acabamento do livro
-	 */
-	public String getAcabamento() {
-		return acabamento;
-	}
-
-	/**
-	 * @param acabamento define o tipo de acabamento do livro
-	 */
-	public void setAcabamento(String acabamento) {
-		this.acabamento = acabamento;
-	}
-
-	/**
-	 * @return o tipo de corte do livro
-	 */
-	public String getCorte() {
-		return corte;
-	}
-
-	/**
-	 * @param corte define o tipo de corte do livro
-	 */
-	public void setCorte(String corte) {
-		this.corte = corte;
 	}
 
 	/**
