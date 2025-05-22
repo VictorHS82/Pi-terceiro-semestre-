@@ -1,9 +1,11 @@
 package banco_de_dados;
 import java.sql.*;
+
+/**
+ * Classe genárica de conexão com banco de dados
+ */
+
 public class BD {
-	/**
-	 * Classe genárica de conexão com banco de dados
-	 */
    public Connection connection = null;
    private final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
    private final String DBNAME = "";
