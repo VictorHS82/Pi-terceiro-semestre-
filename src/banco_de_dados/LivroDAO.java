@@ -6,15 +6,13 @@ import java.util.List;
 
 import objetos.Livros;
 public class LivroDAO {
-public Livros livros;
-public BD bd;
 
- private static PreparedStatement preparedstatement = null;
- 
+private final BD bd = new BD();
+
  private static String cadastrar_livro = " INSERT INTO LIVRO "
 		 + "(cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato,"
 		 + "acabamento, corte, paginas, quantidade, peso, precoUnid)"
-		 + "VALUES (NULL, ?,?,?,?,?,?,?,?,?,?,?,?,? ";
+		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
  
  private static String consultar_livro = " SELECT * FROM LIVRO "
 		 + "WHERE cod_livro = ?";
@@ -26,24 +24,26 @@ public BD bd;
  
  private static String deletar_livro = " DELETE * FROM * LIVRO "
 		 + "WHERE ID = ?";
+
+private static String consultar_estoque = "SELECT cod_livro, ttitulo, quantidade FROM LIVRO";
  
 public LivroDAO() {
-	bd = new BD();
-	livros = new Livros();
+	bd.getConnection();
 }
 
 public boolean cadastrarLivro(Livros livros) {
 	String query = cadastrar_livro;
-	try {
-		preparedstatement = bd.connection.prepareStatement(query);
+	try { PreparedStatement preparedstatement = bd.connection.prepareStatement(query);
 	
 		int i = 1;
+		preparedstatement.setString(i++, livros.getCod_livro());
 		preparedstatement.setString(i++, livros.getTitulo());
 		preparedstatement.setString(i++, livros.getAutor());
 		preparedstatement.setString(i++, livros.getDescricao());
 		preparedstatement.setString(i++, livros.getAnoPublicacao());
 		preparedstatement.setString(i++, livros.getIsbn());
 		preparedstatement.setString(i++, livros.getGenero());
+		preparedstatement.setString(i++, livros.getIdioma());
 		preparedstatement.setString(i++, livros.getFormato());
 		preparedstatement.setString(i++, livros.getAcabamento());
 		preparedstatement.setString(i++, livros.getCorte());
@@ -67,8 +67,8 @@ public List<Livros> listarTodos() {
     List<Livros> lista = new ArrayList<>();
     String sql = "SELECT * FROM livros";
 
-    try (PreparedStatement preparedsatatement = bd.connection.prepareStatement(sql);
-         ResultSet rs = preparedstatement.executeQuery()) {
+    try (PreparedStatement stmt = bd.connection.prepareStatement(sql);
+         ResultSet rs = stmt.executeQuery()) {
 
         while (rs.next()) {
             Livros livro = new Livros(
@@ -136,6 +136,41 @@ public Livros buscarPorCodigo(String cod) {
     }
 
     return livro;
+}
+
+public List<Livros> consultarEstoque() {
+	List<Livros> estoque = new ArrayList<>();
+	String query = consultar_estoque;
+	
+	try (PreparedStatement preparestatement =  bd.connection.prepareStatement(query);
+		 ResultSet rs = preparestatement.executeQuery()) {
+		
+		while ( rs.next()) {
+		Livros livro = new Livros(
+		rs.getString("cod_livro"),
+		rs.getString("titulo"),
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		0,
+		rs.getInt("quantidade"),
+		0f,
+		0f
+	);
+		estoque.add(livro);
+		}
+} catch (SQLException e) {
+	e.printStackTrace();
+} finally {
+	bd.close();
+}
+	return estoque;
 }
 
 public boolean atualizarLivro(Livros livro) {
