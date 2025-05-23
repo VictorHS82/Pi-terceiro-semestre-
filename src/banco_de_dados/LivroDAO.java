@@ -31,8 +31,8 @@ private final BD bd = new BD();
 		 + " paginas = ?, quantidade = ?, peso = ?, preco_unitario = ?"
 		 + " WHERE cod_livro = ?";
  
- private static String deletar_livro = " DELETE * FROM * LIVRO "
-		 + "WHERE ID = ?";
+ private static String deletar_livro = " DELETE FROM LIVRO "
+		 + "WHERE cod_livro = ?";
 
 private static String consultar_estoque = "SELECT cod_livro, ttitulo, quantidade FROM LIVRO";
 
