@@ -9,11 +9,11 @@ import objetos.Livros;
 public class ConsumirLivros {
 
 	public static void main(String[] args) {
-		//cadastrar();
+		cadastrar();
 		//alterar();
 		//listar();
 		//buscarid();
-		excluir();
+		//excluir();
 	}
 	
 	public static void cadastrar() {	
