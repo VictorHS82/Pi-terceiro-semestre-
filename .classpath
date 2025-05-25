@@ -33,5 +33,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Samsung/Documents/sqljdbc_12.10/ptb/jars/mssql-jdbc-12.10.0.jre8.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
