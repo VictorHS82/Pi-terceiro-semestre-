@@ -9,16 +9,17 @@ import java.sql.*;
  */
 public class PesquisaDAO {
 
-	private final BD bd = new BD();
+	private final BD bd;
 	
 	public PesquisaDAO(){
+		bd = new BD();
 		bd.getConnection();
 	}
 	
 	public List<Livros> pesquisarLivro(String termoBusca, Integer maxPaginas, Float precoMaximo, String formato){
 		List<Livros> livros = new ArrayList<>();
 		
-		StringBuilder sql = new StringBuilder("SELECT * FROM livros WHERE 1=1");
+		StringBuilder sql = new StringBuilder("SELECT * FROM livro WHERE 1=1");
 		List<Object> parametros = new ArrayList<>();
 		
 		if (termoBusca != null && termoBusca.isEmpty()) {
@@ -35,8 +36,8 @@ public class PesquisaDAO {
 		}
 		
 		if (precoMaximo != null) {
-			sql.append(" AND precoUnid <= ?");
-			sql.append(formato);
+			sql.append(" AND preco_unitario <= ?");
+			parametros.add(precoMaximo);
 		}
 		
 		if (formato != null && !formato.isEmpty()) {
@@ -45,11 +46,6 @@ public class PesquisaDAO {
 		}
 		
 		try {
-			
-		if (!bd.getConnection()){
-			 System.out.println("Erro ao se conectar");
-			 return livros;
-		}
 		
 		PreparedStatement stmt = bd.connection.prepareStatement(sql.toString());
 		for (int i = 0; i < parametros.size(); i++) {
@@ -75,6 +71,7 @@ public class PesquisaDAO {
 	            );
                   livros.add(livro);
 		}
+		 stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

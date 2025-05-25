@@ -9,10 +9,10 @@ public class ConsumirPesquisa {
 	public static void main(String[] args) {
 		PesquisaDAO dao = new PesquisaDAO();
 		
-		String termoBusca = "Java";
-		Integer maxPaginas = 500;
-		Float precoMaximo = 80.0f;
-		String formato = "Brochura";
+		String termoBusca = "Carlos Souza";
+		Integer maxPaginas = 600;
+		Float precoMaximo = 90.00f;
+		String formato = "Digital";
 		
 		List<Livros> resultado = dao.pesquisarLivro(termoBusca, maxPaginas, precoMaximo, formato);
 		
