@@ -7,11 +7,11 @@ import java.sql.*;
 /**
  * Classe responsavél por lidar com as pesquisa realizadas pelo usuário
  */
-public class PesquisaDAO {
+public class Pesquisa {
 
 	private final BD bd;
 	
-	public PesquisaDAO(){
+	public Pesquisa(){
 		bd = new BD();
 		bd.getConnection();
 	}

@@ -1,13 +1,13 @@
-package interfaces;
+package consumir;
 
 import java.util.List;
-import banco_de_dados.PesquisaDAO;
+import banco_de_dados.Pesquisa;
 import objetos.Livros;
 
 public class ConsumirPesquisa {
 
 	public static void main(String[] args) {
-		PesquisaDAO dao = new PesquisaDAO();
+		Pesquisa dao = new Pesquisa();
 		
 		String termoBusca = "Carlos Souza";
 		Integer maxPaginas = 600;
