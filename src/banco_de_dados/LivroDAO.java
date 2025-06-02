@@ -168,10 +168,10 @@ public Livros buscarPorCodigo(String cod) {
 public List<Livros> consultarEstoque() {
 	List<Livros> estoque = new ArrayList<>();
 	String query = consultar_estoque;
-	
+
 	try (PreparedStatement preparestatement =  bd.connection.prepareStatement(query);
 		 ResultSet rs = preparestatement.executeQuery()) {
-		
+
 		while ( rs.next()) {
 		Livros livro = new Livros(
 		rs.getString("cod_livro"),

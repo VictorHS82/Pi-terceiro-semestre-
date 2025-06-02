@@ -1,6 +1,7 @@
 package banco_de_dados;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import objetos.Carrinho;
@@ -19,6 +20,8 @@ public class CarrinhoDAO {
 	private static String pegarItensDoCarrinho = "";
 	
 	private static String excluirItemDoCarrinho = "";
+	
+	private static String excluirCarrinho = "";
 	
 	public CarrinhoDAO() {
 		bd.getConnection();
@@ -43,8 +46,20 @@ public class CarrinhoDAO {
 	}
 	
 	public boolean deletarCarrinho(int cod_carrinho) {
-		
-	}
+		String sql = excluirCarrinho;
+        try (PreparedStatement stmt = bd.connection.prepareStatement(sql)) {
+            stmt.setInt(1, cod_carrinho);
+
+            int linhasAfetadas = stmt.executeUpdate();
+            bd.connection.commit();
+            return linhasAfetadas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            bd.close();
+        }
+    }
 	
 	public boolean post(Item_carrinho item_carrinho) {
 		String sql = adicionarItemAoCarrinho;
@@ -67,8 +82,47 @@ public class CarrinhoDAO {
 		bd.close();
 	}	
 		}
-	}
 
-   public boolean get(int cod_item_carrinho) {
-	   String sql = "";
+   public List<Item_carrinho> get(int cod_carrinho) {
+	   List<Item_carrinho> lista = new ArrayList<>();
+	   String sql = pegarItensDoCarrinho;
+	   
+	   try(PreparedStatement preparedstatement = bd.connection.prepareStatement(sql);
+			   ResultSet rs = preparedstatement.executeQuery()) {
+
+				while (rs.next()) {
+				 Item_carrinho item = new Item_carrinho(
+					rs.getInt("cod_item_carrinho"),
+					rs.getInt("cod_carrinho"),
+					rs.getInt("cod_livro"),
+					rs.getString("nome_livro"),
+					rs.getInt("quantidade"),
+					rs.getFloat("preco")
+					);
+				 lista.add(item);
+				}
+			   } catch (SQLException e) {
+				   e.printStackTrace();
+			   } finally {
+				   bd.close();
+			   }
+	   return lista;
+   }
+   
+   public boolean delete(int cod_item_carrinho) {
+	   String sql = excluirItemDoCarrinho;
+
+       try (PreparedStatement stmt = bd.connection.prepareStatement(sql)) {
+           stmt.setInt(1, cod_item_carrinho);
+
+           int linhasAfetadas = stmt.executeUpdate();
+           bd.connection.commit();
+           return linhasAfetadas > 0;
+       } catch (SQLException e) {
+           e.printStackTrace();
+           return false;
+       } finally {
+           bd.close();
+       }
+   }
    }

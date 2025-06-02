@@ -8,6 +8,16 @@ public class Item_carrinho{
 	private int quantidade;
 	private float preco;
 
+	public Item_carrinho(int cod_item_carrinho, int cod_carrinho, int cod_livro, String nome_livro, int quantidade,
+			float preco) {
+		super();
+		this.cod_item_carrinho = cod_item_carrinho;
+		this.cod_carrinho = cod_carrinho;
+		this.cod_livro = cod_livro;
+		this.nome_livro = nome_livro;
+		this.quantidade = quantidade;
+		this.preco = preco;
+	}
 	public int getCod_item_carrinho() {
 		return cod_item_carrinho;
 	}
