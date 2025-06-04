@@ -4,7 +4,7 @@ import java.util.List;
 
 import objetos.Livros;
 
-public interface testedao {
+public interface testedao extends BaseDAO {
 
 	/**
 	 * Cadastra um livro no banco de dados

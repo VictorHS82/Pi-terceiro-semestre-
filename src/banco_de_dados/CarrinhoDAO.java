@@ -15,13 +15,18 @@ public class CarrinhoDAO {
 			+ "(cod_carrinho, cod_cliente)"
 			+ "VALUES(?,?)";
 	
-	private static String adicionarItemAoCarrinho = "";
+	private static String adicionarItemAoCarrinho = "INSERT INTO item_carrinho"
+			+"(cod_item_carrinho, cod_carrinho, cod_livro, nome_livro, quantidade, preco)"
+			+ "VALUES(?,?,?,?,?)";
 	
-	private static String pegarItensDoCarrinho = "";
+	private static String pegarItensDoCarrinho = "SELECT * FROM item_carrinho"
+			+"WHERE id_carrinho = ?";
 	
-	private static String excluirItemDoCarrinho = "";
+	private static String excluirItemDoCarrinho = "DELETE FROM item_carrinho"
+			+"WHERE id_tem_carrinho = ?";
 	
-	private static String excluirCarrinho = "";
+	private static String excluirCarrinho = "DELETE * FROM carrinho"
+			+"WHERE id_carrinho = ?";
 	
 	public CarrinhoDAO() {
 		bd.getConnection();

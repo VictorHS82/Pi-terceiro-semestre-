@@ -258,4 +258,34 @@ public boolean deletarLivro(String cod_livro) {
         }
     }
 
+@Override
+public boolean post() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public Object get() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public boolean update() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public boolean delete() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public List<Object> list() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
 }
