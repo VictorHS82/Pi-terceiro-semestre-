@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import interfacesDAO.testedao;
 import objetos.Livros;
 
 /**
@@ -11,7 +12,7 @@ import objetos.Livros;
  * Capaz de manipular a entidade livro do Banco de dados
  */
 
-public class LivroDAO {
+public class LivroDAO implements testedao {
 
 private final BD bd = new BD();
 
@@ -47,6 +48,7 @@ public LivroDAO() {
  * @param livros recebe um novo objeto livro
  * @return true or false
  */
+@Override
 public boolean cadastrarLivro(Livros livros) {
 	String query = cadastrar_livro;
 	try { PreparedStatement preparedstatement = bd.connection.prepareStatement(query);
@@ -80,6 +82,7 @@ public boolean cadastrarLivro(Livros livros) {
  * Lista todos as tuplas/linhas da entidade livro do banco de dados
  * @return lista lista com todos os itens cadastrados no banco
  */
+@Override
 public List<Livros> listarTodos() {
     List<Livros> lista = new ArrayList<>();
     String sql = listar_tudo;
@@ -120,6 +123,7 @@ public List<Livros> listarTodos() {
  * @param cod cod do livro a ser procurado
  * @return livro livro quê foi encontrado pela consulta
  */
+@Override
 public Livros buscarPorCodigo(String cod) {
     String query = consultar_livro;
     Livros livro = null;
@@ -160,13 +164,14 @@ public Livros buscarPorCodigo(String cod) {
  * Busca todas as tuplas/linhas do banco, mas retorna apenas os atributos cod_livro, titulo e quantidade
  * @return estoque lista com o cod_livro, titulo e quantidade de todas as linhas/tuplas do banco da entidade livro
  */
+@Override
 public List<Livros> consultarEstoque() {
 	List<Livros> estoque = new ArrayList<>();
 	String query = consultar_estoque;
-	
+
 	try (PreparedStatement preparestatement =  bd.connection.prepareStatement(query);
 		 ResultSet rs = preparestatement.executeQuery()) {
-		
+
 		while ( rs.next()) {
 		Livros livro = new Livros(
 		rs.getString("cod_livro"),
@@ -199,6 +204,7 @@ public List<Livros> consultarEstoque() {
  * @return linhasAfetadas mostra quantas infromações foram modificadas
  * @return false caso a operação falhe
  */
+@Override
 public boolean atualizarLivro(Livros livro) {
     String sql = alterar_livro;
 
@@ -234,6 +240,7 @@ public boolean atualizarLivro(Livros livro) {
  * @param cod_livro código do livro a ser deletado
  * @return linhasAfetadas quantida de linhas deletadas
  */
+@Override
 public boolean deletarLivro(String cod_livro) {
         String query = deletar_livro;
 
@@ -250,5 +257,35 @@ public boolean deletarLivro(String cod_livro) {
             bd.close();
         }
     }
+
+@Override
+public boolean post() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public Object get() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public boolean update() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public boolean delete() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
+@Override
+public List<Object> list() {
+	// TODO Auto-generated method stub
+	return null;
+}
 
 }

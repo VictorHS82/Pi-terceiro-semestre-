@@ -1,8 +1,9 @@
-package interfaces;
+package consumir;
 
 import java.util.List;
 
 import banco_de_dados.LivroDAO;
+import interfacesDAO.testedao;
 import objetos.Livros;
 
 // Classe para testar os métodos de LivroDAO, não mexer
@@ -17,7 +18,7 @@ public class ConsumirLivros {
 	}
 	
 	public static void cadastrar() {	
-		LivroDAO dao = new LivroDAO();
+		testedao dao = new LivroDAO();
 		
 		Livros livro = new Livros(
 		"002", "Python", "Carlos Souza", "Livro Avançado de Java",
@@ -27,7 +28,7 @@ public class ConsumirLivros {
 	}
 	
 	public static void alterar() {
-		LivroDAO dao = new LivroDAO();
+		testedao dao = new LivroDAO();
 		
 		Livros livro = new Livros(
 		"002", "Python", "Marco Geraldo", "Livro Avançado de Java",
@@ -37,7 +38,7 @@ public class ConsumirLivros {
 	}
 
 	public static void listar() {
-		LivroDAO dao = new LivroDAO();
+		testedao dao = new LivroDAO();
 			
 		List<Livros> lista = dao.listarTodos();
 		for (Livros livro : lista) {
@@ -51,7 +52,7 @@ public class ConsumirLivros {
 	}
 	
 	public static void buscarid() {
-		LivroDAO dao = new LivroDAO();
+		testedao dao = new LivroDAO();
 		
 		Livros livro = dao.buscarPorCodigo("002");
 		
@@ -65,7 +66,7 @@ public class ConsumirLivros {
 	}
 }
 	public static void excluir() {
-		LivroDAO dao = new LivroDAO();
+		testedao dao = new LivroDAO();
 		
 		boolean removido = dao.deletarLivro("002");
 		
