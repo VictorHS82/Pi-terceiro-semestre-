@@ -10,11 +10,11 @@ public class ConsumirPedido {
 
     public static void main(String[] args) {
         // Você pode chamar os métodos de teste individualmente aqui
-    	//testarCriarPedido();
+    	testarCriarPedido();
     	//testarAdicionarItemPedido();
     	//testarListarItensPedido();
     	//testarExcluirItemPedido();
-    	testarExcluirPedido();
+    	//testarExcluirPedido();
     	
     }
 

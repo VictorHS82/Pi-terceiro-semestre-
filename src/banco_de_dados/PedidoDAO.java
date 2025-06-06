@@ -32,6 +32,10 @@ public class PedidoDAO {
 	    private static final String EXCLUIR_PEDIDO = "DELETE FROM pedido" 
 	    		+" WHERE cod_pedido = ?";
 
+	    private static final String ATUALIZAR_STATUS = "UPDATE pedido"
+	    		+ " SET status = ?" 
+	    		+ " WHERE cod_pagamento = ?";
+	    
 	    public PedidoDAO() {
 	        bd.getConnection();
 	    }
@@ -117,6 +121,21 @@ public class PedidoDAO {
 	    public boolean excluirPedido(int cod_pedido) {
 	        try (PreparedStatement stmt = bd.connection.prepareStatement(EXCLUIR_PEDIDO)) {
 	            stmt.setInt(1, cod_pedido);
+	            int linhasAfetadas = stmt.executeUpdate();
+	            bd.connection.commit();
+	            return linhasAfetadas > 0;
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            return false;
+	        } finally {
+	            bd.close();
+	        }
+	    }
+	    
+	    public boolean atualizarStatus(int cod_pedido, String novoStatus) {
+	        try (PreparedStatement stmt = bd.connection.prepareStatement(ATUALIZAR_STATUS)) {
+	            stmt.setString(1, novoStatus);
+	            stmt.setInt(2, cod_pedido);
 	            int linhasAfetadas = stmt.executeUpdate();
 	            bd.connection.commit();
 	            return linhasAfetadas > 0;
