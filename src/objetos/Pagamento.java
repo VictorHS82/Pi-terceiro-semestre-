@@ -6,25 +6,50 @@ package objetos;
  */
 public class Pagamento {
 	private int cod_pagamento;
-	private String data_pagamento;
+	private int cod_pedido;
 	private float valor_compra;
 	private String forma_pagamento;
+	private String status;
 
-	/**
-	 * Cria um novo registro de pagamento no sistema.
-	 * (Método ainda não implementado)
-	 */
-	public static void CriarPagamento() {
-		
+	
+	
+	public Pagamento(int cod_pagamento, int cod_pedido, float valor_compra, String forma_pagamento, String status) {
+		super();
+		this.cod_pagamento = cod_pagamento;
+		this.cod_pedido = cod_pedido;
+		this.valor_compra = valor_compra;
+		this.forma_pagamento = forma_pagamento;
+		this.status = status;
 	}
 
-	/**
-	 * Consulta as informações de um pagamento existente.
-	 * (Método ainda não implementado)
-	 */
-	public static void ConsultarPagamento() {
-		
+
+
+
+	public int getCod_pedido() {
+		return cod_pedido;
 	}
+
+
+
+
+	public void setCod_pedido(int cod_pedido) {
+		this.cod_pedido = cod_pedido;
+	}
+
+
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
 
 	/**
 	 * Obtém o código do pagamento.
@@ -42,24 +67,6 @@ public class Pagamento {
 	 */
 	public void setCod_pagamento(int cod_pagamento) {
 		this.cod_pagamento = cod_pagamento;
-	}
-
-	/**
-	 * Obtém a data do pagamento.
-	 * 
-	 * @return a data do pagamento como um número inteiro
-	 */
-	public String getData_pagamento() {
-		return data_pagamento;
-	}
-
-	/**
-	 * Define a data do pagamento.
-	 * 
-	 * @param data_pagamento a data do pagamento como número inteiro
-	 */
-	public void setData_pagamento(String data_pagamento) {
-		this.data_pagamento = data_pagamento;
 	}
 
 	/**
