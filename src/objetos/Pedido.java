@@ -5,87 +5,87 @@ package objetos;
  * a quantidade solicitada, o carrinho e os códigos relacionados.
  */
 public class Pedido {
-	private int cod_compra;
-	private int cod_livro;
+	private int cod_pedido;
 	private int cod_cliente;
-	private int quantidade;
-	private int cod_carrinho;
+	private float desconto;
+	private float valor_frete;
+	private float subtotal;
+	private float valor_total;
+	private String status;
 
-	/**
-	 * Cria um novo pedido no sistema.
-	 * (Método ainda não implementado)
-	 */
-	public static void CriarPedido() {
-		
+	public Pedido(int cod_pedido, int cod_cliente, float desconto, float valor_frete, float subtotal, float valor_total,
+			String status) {
+		super();
+		this.cod_pedido = cod_pedido;
+		this.cod_cliente = cod_cliente;
+		this.desconto = desconto;
+		this.valor_frete = valor_frete;
+		this.subtotal = subtotal;
+		this.valor_total = valor_total;
+		this.status = status;
 	}
 
-	/**
-	 * @return o código da compra
-	 */
-	public int getCod_compra() {
-		return cod_compra;
+
+	public int getCod_pedido() {
+		return cod_pedido;
 	}
 
-	/**
-	 * @param cod_compra define o código da compra
-	 */
-	public void setCod_compra(int cod_compra) {
-		this.cod_compra = cod_compra;
+
+
+	public void setCod_pedido(int cod_pedido) {
+		this.cod_pedido = cod_pedido;
 	}
 
-	/**
-	 * @return o código do livro relacionado ao pedido
-	 */
-	public int getCod_livro() {
-		return cod_livro;
-	}
 
-	/**
-	 * @param cod_livro define o código do livro relacionado ao pedido
-	 */
-	public void setCod_livro(int cod_livro) {
-		this.cod_livro = cod_livro;
-	}
 
-	/**
-	 * @return o código do cliente que fez o pedido
-	 */
 	public int getCod_cliente() {
 		return cod_cliente;
 	}
 
-	/**
-	 * @param cod_cliente define o código do cliente que fez o pedido
-	 */
 	public void setCod_cliente(int cod_cliente) {
 		this.cod_cliente = cod_cliente;
 	}
 
-	/**
-	 * @return a quantidade de livros no pedido
-	 */
-	public int getQuantidade() {
-		return quantidade;
+	public float getDesconto() {
+		return desconto;
 	}
 
-	/**
-	 * @param quantidade define a quantidade de livros no pedido
-	 */
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
+	public void setDesconto(float desconto) {
+		this.desconto = desconto;
 	}
 
-	/**
-	 * @return o código do carrinho associado ao pedido
-	 */
-	public int getCod_carrinho() {
-		return cod_carrinho;
+	public float getValor_frete() {
+		return valor_frete;
 	}
 
-	/**
-	 * @param cod_carrinho define o código do carrinho associado ao pedido
-	 */
-	public void setCod_carrinho(int cod_carrinho) {
-		this.cod_carrinho = cod_carrinho;
+	public void setValor_frete(float valor_frete) {
+		this.valor_frete = valor_frete;
 	}
+
+	public float getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(float subtotal) {
+		this.subtotal = subtotal;
+	}
+
+	public float getValor_total() {
+		return valor_total;
+	}
+
+	public void setValor_total(float valor_total) {
+		this.valor_total = valor_total;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	
+     
 }
