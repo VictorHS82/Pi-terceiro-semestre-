@@ -5,8 +5,8 @@ package objetos;
  * ISBN, descrição, entre outras características.
  */
 public class Livros {
-	private String cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato;
-	private int paginas, quantidade;
+	private String titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato, imagem;
+	private int cod_livro, paginas, quantidade;
 	private float peso, preco_unitario;
 	
 	/**
@@ -25,9 +25,8 @@ public class Livros {
 	 * @param peso
 	 * @param preco_unitario
 	 */
-	public Livros(String cod_livro, String titulo, String autor, String descricao, String anopublicacao, String isbn,
-			String genero, String idioma, String formato, int paginas, int quantidade,
-			float peso, float preco_unitario) {
+	public Livros(int cod_livro, String titulo, String autor, String descricao, String anopublicacao, String isbn,
+			String genero, String idioma, String formato, int paginas, int quantidade, float peso, float preco_unitario, String imagem) {
 		super();
 		this.cod_livro = cod_livro;
 		this.titulo = titulo;
@@ -40,20 +39,16 @@ public class Livros {
 		this.formato = formato;
 		this.paginas = paginas;
 		this.quantidade = quantidade;
+		this.peso = peso;
 		this.preco_unitario = preco_unitario;
+		this.imagem = imagem;
 	}
 
-	/**
-	 * @return o código do livro
-	 */
-	public String getCod_livro() {
+	public int getCod_livro() {
 		return cod_livro;
 	}
 
-	/**
-	 * @param cod_livro define o código do livro
-	 */
-	public void setCod_livro(String cod_livro) {
+	public void setCod_livro(int cod_livro) {
 		this.cod_livro = cod_livro;
 	}
 
@@ -224,4 +219,29 @@ public class Livros {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+
+	public String getAnopublicacao() {
+		return anopublicacao;
+	}
+
+	public void setAnopublicacao(String anopublicacao) {
+		this.anopublicacao = anopublicacao;
+	}
+
+	public float getPreco_unitario() {
+		return preco_unitario;
+	}
+
+	public void setPreco_unitario(float preco_unitario) {
+		this.preco_unitario = preco_unitario;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
 }

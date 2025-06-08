@@ -21,15 +21,15 @@ private final BD bd = new BD();
 //listar tudo pega todas as infromações disponivéis da entidade livro
  private static String cadastrar_livro = " INSERT INTO LIVRO "
 		 + "(cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato,"
-		 + "paginas, quantidade, peso, preco_unitario)"
-		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		 + "paginas, quantidade, peso, preco_unitario, imagem)"
+		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
  
  private static String consultar_livro = " SELECT * FROM LIVRO "
 		 + "WHERE cod_livro = ?";
  
  private static String alterar_livro = " UPDATE LIVRO SET"
 		 + " titulo = ?, autor = ?, descricao = ?, anopublicacao = ?, isbn = ?, genero = ?, idioma = ?, formato = ?,"
-		 + " paginas = ?, quantidade = ?, peso = ?, preco_unitario = ?"
+		 + " paginas = ?, quantidade = ?, peso = ?, preco_unitario = ?, imagem = ?"
 		 + " WHERE cod_livro = ?";
  
  private static String deletar_livro = " DELETE FROM LIVRO "
@@ -54,7 +54,6 @@ public boolean cadastrarLivro(Livros livros) {
 	try { PreparedStatement preparedstatement = bd.connection.prepareStatement(query);
 	
 		int i = 1;
-		preparedstatement.setString(i++, livros.getCod_livro());
 		preparedstatement.setString(i++, livros.getTitulo());
 		preparedstatement.setString(i++, livros.getAutor());
 		preparedstatement.setString(i++, livros.getDescricao());
@@ -67,6 +66,7 @@ public boolean cadastrarLivro(Livros livros) {
 		preparedstatement.setInt(i++, livros.getQuantidade());
 		preparedstatement.setFloat(i++, livros.getPeso());
 		preparedstatement.setFloat(i++, livros.getPrecoUnid());
+		preparedstatement.setString(i++, livros.getImagem());
 		preparedstatement.executeUpdate();
 		bd.connection.commit();
 		return true;
@@ -92,7 +92,7 @@ public List<Livros> listarTodos() {
 
         while (rs.next()) {
             Livros livro = new Livros(
-                rs.getString("cod_livro"),
+                rs.getInt("cod_livro"),
                 rs.getString("titulo"),
                 rs.getString("autor"),
                 rs.getString("descricao"),
@@ -104,7 +104,8 @@ public List<Livros> listarTodos() {
                 rs.getInt("paginas"),
                 rs.getInt("quantidade"),
                 rs.getFloat("peso"),
-                rs.getFloat("preco_unitario")
+                rs.getFloat("preco_unitario"),
+                rs.getString("imagem")
             );
             lista.add(livro);
         }
@@ -124,17 +125,17 @@ public List<Livros> listarTodos() {
  * @return livro livro quê foi encontrado pela consulta
  */
 @Override
-public Livros buscarPorCodigo(String cod) {
+public Livros buscarPorCodigo(int cod) {
     String query = consultar_livro;
     Livros livro = null;
 
     try (PreparedStatement stmt = bd.connection.prepareStatement(query)) {
-        stmt.setString(1, cod);
+        stmt.setInt(1, cod);
         ResultSet rs = stmt.executeQuery();
 
         if (rs.next()) {
             livro = new Livros(
-                rs.getString("cod_livro"),
+                rs.getInt("cod_livro"),
                 rs.getString("titulo"),
                 rs.getString("autor"),
                 rs.getString("descricao"),
@@ -146,7 +147,8 @@ public Livros buscarPorCodigo(String cod) {
                 rs.getInt("paginas"),
                 rs.getInt("quantidade"),
                 rs.getFloat("peso"),
-                rs.getFloat("preco_unitario")
+                rs.getFloat("preco_unitario"),
+                rs.getString("imagem")
             );
         }
 
@@ -174,7 +176,7 @@ public List<Livros> consultarEstoque() {
 
 		while ( rs.next()) {
 		Livros livro = new Livros(
-		rs.getString("cod_livro"),
+		rs.getInt("cod_livro"),
 		rs.getString("titulo"),
 		null,
 		null,
@@ -186,7 +188,8 @@ public List<Livros> consultarEstoque() {
 		0,
 		rs.getInt("quantidade"),
 		0f,
-		0f
+		0f,
+		rs.getString("imagem")
 	);
 		estoque.add(livro);
 		}
@@ -222,7 +225,8 @@ public boolean atualizarLivro(Livros livro) {
         stmt.setInt(i++, livro.getQuantidade());
         stmt.setFloat(i++, livro.getPeso());
         stmt.setFloat(i++, livro.getPrecoUnid());
-        stmt.setString(i, livro.getCod_livro());
+        stmt.setString(i++, livro.getImagem());
+        stmt.setInt(i, livro.getCod_livro());
 
         int linhasAfetadas = stmt.executeUpdate();
         bd.connection.commit();
