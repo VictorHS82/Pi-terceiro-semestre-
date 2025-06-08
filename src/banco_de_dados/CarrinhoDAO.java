@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import interfacesDAO.BaseCarrinhoDAO;
-import objetos.Carrinho;
 import objetos.Item_carrinho;
 
 /**
@@ -16,12 +15,12 @@ public class CarrinhoDAO implements BaseCarrinhoDAO {
 	private final BD bd = new BD();
 	
 	private static String criarCarrinho = "INSERT INTO carrinho"
-			+ "(cod_carrinho, cod_cliente)"
-			+ "VALUES(?,?)";
+			+ "(cod_cliente)"
+			+ "VALUES(?)";
 	
 	private static String adicionarItemAoCarrinho = "INSERT INTO item_carrinho"
-			+"(cod_item_carrinho, cod_carrinho, cod_livro, nome_livro, quantidade, preco_livro)"
-			+ "VALUES(?,?,?,?,?,?)";
+			+"(cod_item_carrinho, cod_livro, nome_livro, quantidade, preco_livro)"
+			+ "VALUES(?,?,?,?,?)";
 	
 	private static String pegarItensDoCarrinho = "SELECT * FROM item_carrinho"
 			+" WHERE cod_carrinho = ?";
@@ -38,18 +37,17 @@ public class CarrinhoDAO implements BaseCarrinhoDAO {
 	
 	/**
 	 * Classe para criar um carrinho
-	 * @param carrinho
+	 * @param cod_cliente
 	 * @return boolean
 	 */
 
 	@Override
-	public boolean criarCarrinho(Carrinho carrinho) {
+	public boolean criarCarrinho(int cod_cliente) {
 		String sql = criarCarrinho;
 		try { PreparedStatement preparedstatement = bd.connection.prepareStatement(sql);
 			
 			int i = 1;
-			preparedstatement.setInt(i++, carrinho.getCod_carrinho());
-			preparedstatement.setInt(i++, carrinho.getCod_cliente());
+			preparedstatement.setInt(i++, cod_cliente);
 			preparedstatement.executeUpdate();
 			bd.connection.commit();
 			return true;

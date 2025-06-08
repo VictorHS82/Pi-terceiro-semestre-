@@ -21,8 +21,8 @@ public class ConsumirLivros {
 		BaseLivroDAO dao = new LivroDAO();
 		
 		Livros livro = new Livros(
-		"002", "Python", "Carlos Souza", "Livro Avançado de Java",
-		"2024", "43554545", "Programação", "Português", "Digital", 550, 7, 0.85f, 89.90f
+		0, "Python", "Carlos Souza", "Livro Avançado de Java",
+		"2024", "43554545", "Programação", "Português", "Digital", 550, 7, 0.85f, 89.90f, "ffgg"
 		);
 		dao.cadastrarLivro(livro);		
 	}
@@ -39,7 +39,6 @@ public class ConsumirLivros {
 
 	public static void listar() {
 		BaseLivroDAO dao = new LivroDAO();
-			
 		List<Livros> lista = dao.listarTodos();
 		for (Livros livro : lista) {
 			System.out.println("Código: " + livro.getCod_livro());

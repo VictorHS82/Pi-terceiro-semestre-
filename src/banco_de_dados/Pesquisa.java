@@ -66,7 +66,7 @@ public class Pesquisa implements BasePesquisa {
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
 			Livros livro = new Livros(
-	                rs.getString("cod_livro"),
+	                rs.getInt("cod_livro"),
 	                rs.getString("titulo"),
 	                rs.getString("autor"),
 	                rs.getString("descricao"),
@@ -78,7 +78,8 @@ public class Pesquisa implements BasePesquisa {
 	                rs.getInt("paginas"),
 	                rs.getInt("quantidade"),
 	                rs.getFloat("peso"),
-	                rs.getFloat("preco_unitario")
+	                rs.getFloat("preco_unitario"),
+	                rs.getString("imagem")
 	            );
                   livros.add(livro);
 		}

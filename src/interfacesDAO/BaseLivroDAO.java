@@ -24,7 +24,7 @@ public interface BaseLivroDAO {
 	 * @param cod cod do livro a ser procurado
 	 * @return livro livro quê foi encontrado pela consulta
 	 */
-	Livros buscarPorCodigo(String cod);
+	Livros buscarPorCodigo(int cod);
 
 	/**
 	 * Busca todas as tuplas/linhas do banco, mas retorna apenas os atributos cod_livro, titulo e quantidade

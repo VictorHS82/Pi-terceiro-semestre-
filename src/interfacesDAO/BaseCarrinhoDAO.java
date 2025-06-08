@@ -2,7 +2,6 @@ package interfacesDAO;
 
 import java.util.List;
 
-import objetos.Carrinho;
 import objetos.Item_carrinho;
 
 public interface BaseCarrinhoDAO {
@@ -13,7 +12,7 @@ public interface BaseCarrinhoDAO {
 	 * @return boolean
 	 */
 
-	boolean criarCarrinho(Carrinho carrinho);
+	boolean criarCarrinho(int cod_cliente);
 
 	/**
 	 * Classe para deletar um carrinho
