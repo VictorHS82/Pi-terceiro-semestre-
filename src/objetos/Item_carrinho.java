@@ -1,5 +1,8 @@
 package objetos;
 
+/**
+ * Classe que representa um item no carrinho
+ */
 public class Item_carrinho{
 	private int cod_item_carrinho;
 	private int cod_carrinho;
@@ -8,6 +11,15 @@ public class Item_carrinho{
 	private int quantidade;
 	private float preco;
 
+	/**
+	 * Constructor da classe item_carrinho
+	 * @param cod_item_carrinho
+	 * @param cod_carrinho
+	 * @param cod_livro
+	 * @param nome_livro
+	 * @param quantidade
+	 * @param preco
+	 */
 	public Item_carrinho(int cod_item_carrinho, int cod_carrinho, int cod_livro, String nome_livro, int quantidade,
 			float preco) {
 		super();

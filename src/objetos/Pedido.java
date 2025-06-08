@@ -13,6 +13,16 @@ public class Pedido {
 	private float valor_total;
 	private String status;
 
+	/**
+	 * Constructor da classe pedido
+	 * @param cod_pedido
+	 * @param cod_cliente
+	 * @param desconto
+	 * @param valor_frete
+	 * @param subtotal
+	 * @param valor_total
+	 * @param status
+	 */
 	public Pedido(int cod_pedido, int cod_cliente, float desconto, float valor_frete, float subtotal, float valor_total,
 			String status) {
 		super();

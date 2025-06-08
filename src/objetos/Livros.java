@@ -8,10 +8,23 @@ public class Livros {
 	private String cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato;
 	private int paginas, quantidade;
 	private float peso, preco_unitario;
-
 	
-    
-	
+	/**
+	 * Constructor da classe livro
+	 * @param cod_livro
+	 * @param titulo
+	 * @param autor
+	 * @param descricao
+	 * @param anopublicacao
+	 * @param isbn
+	 * @param genero
+	 * @param idioma
+	 * @param formato
+	 * @param paginas
+	 * @param quantidade
+	 * @param peso
+	 * @param preco_unitario
+	 */
 	public Livros(String cod_livro, String titulo, String autor, String descricao, String anopublicacao, String isbn,
 			String genero, String idioma, String formato, int paginas, int quantidade,
 			float peso, float preco_unitario) {

@@ -7,10 +7,9 @@ import java.util.List;
 import objetos.Item_pedido;
 import objetos.Pedido;
 /**
+ * Classe DAO que controle pedidos e item_pedido
  * 
- * @param cod_compra
- * @return
- */
+ * */
 public class PedidoDAO {
 
 	    private final BD bd = new BD();
@@ -40,6 +39,11 @@ public class PedidoDAO {
 	        bd.getConnection();
 	    }
 
+	    /**
+	     * Cadastra um novo pedido no banco de dados
+	     * @param pedido
+	     * @return boolean
+	     */
 	    public boolean criarPedido(Pedido pedido) {
 	        try (PreparedStatement stmt = bd.connection.prepareStatement(criar_pedido)) {
 	            int i = 1;
@@ -61,6 +65,11 @@ public class PedidoDAO {
 	        }
 	    }
 
+	    /**
+	     * Adiciona um item_pedido ao banco de dados, e o vínculo a um pedidos
+	     * @param item
+	     * @return boolean
+	     */
 	    public boolean adicionarItemPedido(Item_pedido item) {
 	        try (PreparedStatement stmt = bd.connection.prepareStatement(ADICIONAR_ITEM_PEDIDO)) {
 	            int i = 1;
@@ -80,6 +89,11 @@ public class PedidoDAO {
 	        }
 	    }
 
+	    /**
+	     * Lista todos os itens_pedido vinculados a um pedido
+	     * @param cod_pedido
+	     * @return list
+	     */
 	    public List<Item_pedido> listarItensPedido(int cod_pedido) {
 	        List<Item_pedido> lista = new ArrayList<>();
 	        try (PreparedStatement stmt = bd.connection.prepareStatement(LISTAR_ITENS_PEDIDO)) {
@@ -104,6 +118,11 @@ public class PedidoDAO {
 	        return lista;
 	    }
 
+	    /**
+	     * Exclui um item pedido do banco de dados
+	     * @param cod_item_pedido
+	     * @return boolean
+	     */
 	    public boolean excluirItemPedido(int cod_item_pedido) {
 	        try (PreparedStatement stmt = bd.connection.prepareStatement(EXCLUIR_ITEM_PEDIDO)) {
 	            stmt.setInt(1, cod_item_pedido);
@@ -118,6 +137,11 @@ public class PedidoDAO {
 	        }
 	    }
 
+	    /**
+	     * Exclui um pedido bo banco de dados
+	     * @param cod_pedido
+	     * @return boolean
+	     */
 	    public boolean excluirPedido(int cod_pedido) {
 	        try (PreparedStatement stmt = bd.connection.prepareStatement(EXCLUIR_PEDIDO)) {
 	            stmt.setInt(1, cod_pedido);
@@ -132,6 +156,12 @@ public class PedidoDAO {
 	        }
 	    }
 	    
+	    /**
+	     * Atualiza o status de um pedido segundo o cod_pedido
+	     * @param cod_pedido
+	     * @param novoStatus
+	     * @return boolean
+	     */
 	    public boolean atualizarStatus(int cod_pedido, String novoStatus) {
 	        try (PreparedStatement stmt = bd.connection.prepareStatement(ATUALIZAR_STATUS)) {
 	            stmt.setString(1, novoStatus);

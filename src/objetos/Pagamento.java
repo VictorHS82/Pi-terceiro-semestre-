@@ -11,8 +11,14 @@ public class Pagamento {
 	private String forma_pagamento;
 	private String status;
 
-	
-	
+	/**
+	 * Constructor da classe pagamento
+	 * @param cod_pagamento
+	 * @param cod_pedido
+	 * @param valor_compra
+	 * @param forma_pagamento
+	 * @param status
+	 */
 	public Pagamento(int cod_pagamento, int cod_pedido, float valor_compra, String forma_pagamento, String status) {
 		super();
 		this.cod_pagamento = cod_pagamento;

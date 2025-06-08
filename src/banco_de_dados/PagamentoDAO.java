@@ -6,6 +6,9 @@ import java.util.List;
 
 import objetos.Pagamento;
 
+/**
+ * Classe DAO para o controle de pagamentos
+ */
 public class PagamentoDAO {
 
     private final BD bd = new BD();
@@ -30,6 +33,11 @@ public class PagamentoDAO {
         bd.getConnection();
     }
 
+    /**
+     * Método que registra um novo pagamento no banco de dados
+     * @param pagamento
+     * @return boolean
+     */
     public boolean registrarPagamento(Pagamento pagamento) {
         try (PreparedStatement stmt = bd.connection.prepareStatement(INSERIR_PAGAMENTO)) {
             int i = 1;
@@ -49,6 +57,10 @@ public class PagamentoDAO {
         }
     }
 
+    /**
+     * Lista todos os pagamentos disponiveis
+     * @return list
+     */
     public List<Pagamento> listarPagamentos() {
         List<Pagamento> lista = new ArrayList<>();
         try (PreparedStatement stmt = bd.connection.prepareStatement(LISTAR_PAGAMENTOS);
@@ -73,6 +85,11 @@ public class PagamentoDAO {
         return lista;
     }
 
+    /**
+     * Pega os dados de um pagamento com base no cod_pagamento fornecido 
+     * @param cod_pagamento
+     * @return objeto pagamento
+     */
     public Pagamento getPagamento(int cod_pagamento) {
         Pagamento pagamento = null;
         try (PreparedStatement stmt = bd.connection.prepareStatement(BUSCAR_PAGAMENTO)) {
@@ -96,6 +113,12 @@ public class PagamentoDAO {
         return pagamento;
     }
 
+    /**
+     * Atualiza o status do pagamento especificado
+     * @param cod_pagamento
+     * @param novoStatus
+     * @return boolean
+     */
     public boolean atualizarStatus(int cod_pagamento, String novoStatus) {
         try (PreparedStatement stmt = bd.connection.prepareStatement(ATUALIZAR_STATUS)) {
             stmt.setString(1, novoStatus);
@@ -111,6 +134,11 @@ public class PagamentoDAO {
         }
     }
 
+    /**
+     * Exclui um pagamento com base no codigo fornecido
+     * @param cod_pagamento
+     * @return boolean
+     */
     public boolean excluirPagamento(int cod_pagamento) {
         try (PreparedStatement stmt = bd.connection.prepareStatement(EXCLUIR_PAGAMENTO)) {
             stmt.setInt(1, cod_pagamento);

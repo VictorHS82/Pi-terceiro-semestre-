@@ -1,5 +1,8 @@
 package objetos;
 
+/**
+ * Classe para o controle de filtros para pesquisa
+ */
 public class Filtros {
 	private float precoProcurado;
 	private String formatoProcurado;
