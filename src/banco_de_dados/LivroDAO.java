@@ -20,9 +20,9 @@ private final BD bd = new BD();
 //cosnultar estoque ecnontra somente as informações da ID, título e quantidade em estoque de um livro 
 //listar tudo pega todas as infromações disponivéis da entidade livro
  private static String cadastrar_livro = " INSERT INTO LIVRO "
-		 + "(cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato,"
+		 + "(titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato,"
 		 + "paginas, quantidade, peso, preco_unitario, imagem)"
-		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
  
  private static String consultar_livro = " SELECT * FROM LIVRO "
 		 + "WHERE cod_livro = ?";

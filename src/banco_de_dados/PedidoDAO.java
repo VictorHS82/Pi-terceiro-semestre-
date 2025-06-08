@@ -16,8 +16,8 @@ public class PedidoDAO implements BasePedidoDAO {
 	    private final BD bd = new BD();
 
 	    private static final String criar_pedido = "INSERT INTO pedido"
-	    		+ "(cod_pedido, cod_cliente, desconto, valor_frete, subtotal, valor_total, status)" 
-	    		+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+	    		+ "(cod_cliente, desconto, valor_frete, subtotal, valor_total, status)" 
+	    		+ "VALUES (?, ?, ?, ?, ?, ?)";
 
 	    private static final String ADICIONAR_ITEM_PEDIDO = "INSERT INTO item_pedido" 
 	    		+ " (cod_item_pedido, cod_pedido, cod_livro, quantidade, preco_na_compra)" 
@@ -48,8 +48,7 @@ public class PedidoDAO implements BasePedidoDAO {
 	    @Override
 		public boolean criarPedido(Pedido pedido) {
 	        try (PreparedStatement stmt = bd.connection.prepareStatement(criar_pedido)) {
-	            int i = 1;
-	            stmt.setInt(i++, pedido.getCod_pedido());	            
+	            int i = 1;	            
 	            stmt.setInt(i++, pedido.getCod_cliente());
 	            stmt.setFloat(i++, pedido.getDesconto());
 	            stmt.setFloat(i++, pedido.getValor_frete());

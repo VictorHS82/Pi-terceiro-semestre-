@@ -15,8 +15,8 @@ public class PagamentoDAO implements BasePagamentoDAO {
     private final BD bd = new BD();
 
     private static final String INSERIR_PAGAMENTO = "INSERT INTO pagamento" 
-    	+ "(cod_pagamento, cod_pedido, valor_compra, forma_pagamento, status)"
-        + " VALUES (?, ?, ?, ?, ?)";
+    	+ "(cod_pedido, valor_compra, forma_pagamento, status)"
+        + " VALUES (?, ?, ?, ?)";
     
     private static final String LISTAR_PAGAMENTOS =  "SELECT * FROM pagamento";
     
@@ -43,7 +43,6 @@ public class PagamentoDAO implements BasePagamentoDAO {
 	public boolean registrarPagamento(Pagamento pagamento) {
         try (PreparedStatement stmt = bd.connection.prepareStatement(INSERIR_PAGAMENTO)) {
             int i = 1;
-            stmt.setInt(i++, pagamento.getCod_pagamento());
             stmt.setInt(i++, pagamento.getCod_pedido());
             stmt.setFloat(i++, pagamento.getValor_compra());
             stmt.setString(i++, pagamento.getForma_pagamento());
