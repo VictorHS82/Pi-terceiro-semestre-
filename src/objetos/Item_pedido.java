@@ -11,6 +11,14 @@ public class Item_pedido {
 	private int quantidade;
 	private float preco_na_compra;
 
+	/**
+	 * Constructor da classe item_pedido
+	 * @param cod_item_pedido
+	 * @param cod_pedido
+	 * @param cod_livro
+	 * @param quantidade
+	 * @param preco_na_compra
+	 */
 	public Item_pedido(int cod_item_pedido, int cod_pedido, int cod_livro, int quantidade, float preco_na_compra) {
 		super();
 		this.cod_item_pedido = cod_item_pedido;

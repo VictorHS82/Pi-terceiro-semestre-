@@ -1,9 +1,17 @@
 package objetos;
 
+/**
+ * Classe que modela o Carrinho
+ */
 public class Carrinho {
 	private int cod_carrinho;
 	private int cod_cliente;
 	
+	/**
+	 * Constructor da classe Carrinho
+	 * @param cod_carrinho
+	 * @param cod_cliente
+	 */
 	public Carrinho(int cod_carrinho, int cod_cliente) {
 		super();
 		this.cod_carrinho = cod_carrinho;

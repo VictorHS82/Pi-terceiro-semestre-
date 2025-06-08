@@ -4,13 +4,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import interfacesDAO.BaseCarrinhoDAO;
 import objetos.Carrinho;
 import objetos.Item_carrinho;
 
 /**
  * Classe DAO para o controle de carrinho, e itens do carrinho
  */
-public class CarrinhoDAO {
+public class CarrinhoDAO implements BaseCarrinhoDAO {
 
 	private final BD bd = new BD();
 	
@@ -41,6 +42,7 @@ public class CarrinhoDAO {
 	 * @return boolean
 	 */
 
+	@Override
 	public boolean criarCarrinho(Carrinho carrinho) {
 		String sql = criarCarrinho;
 		try { PreparedStatement preparedstatement = bd.connection.prepareStatement(sql);
@@ -64,6 +66,7 @@ public class CarrinhoDAO {
 	 * @param cod_carrinho
 	 * @return boolean
 	 */
+	@Override
 	public boolean deletarCarrinho(int cod_carrinho) {
 		String sql = excluirCarrinho;
         try (PreparedStatement stmt = bd.connection.prepareStatement(sql)) {
@@ -86,6 +89,7 @@ public class CarrinhoDAO {
 	 * @return boolean
 	 */
 	
+	@Override
 	public boolean post(Item_carrinho item_carrinho) {
 		String sql = adicionarItemAoCarrinho;
 		try { PreparedStatement preparedstatement = bd.connection.prepareStatement(sql);
@@ -114,7 +118,8 @@ public class CarrinhoDAO {
 	 * @param cod_carrinho
 	 * @return lista de itens do carrinho
 	 */
-   public List<Item_carrinho> get(int cod_carrinho) {
+   @Override
+public List<Item_carrinho> get(int cod_carrinho) {
 	   List<Item_carrinho> lista = new ArrayList<>();
 	   String sql = pegarItensDoCarrinho;
 	   
@@ -146,7 +151,8 @@ public class CarrinhoDAO {
     * @param cod_item_carrinho
     * @return boolean
     */
-   public boolean delete(int cod_item_carrinho) {
+   @Override
+public boolean delete(int cod_item_carrinho) {
 	   String sql = excluirItemDoCarrinho;
 
        try (PreparedStatement stmt = bd.connection.prepareStatement(sql)) {

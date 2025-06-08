@@ -1,6 +1,7 @@
 package consumir;
 
 import banco_de_dados.PagamentoDAO;
+import interfacesDAO.BasePagamentoDAO;
 import objetos.Pagamento;
 
 public class ConsumirPagamento {
@@ -21,13 +22,13 @@ public class ConsumirPagamento {
             "Pago"        // status
         );
 
-        PagamentoDAO dao = new PagamentoDAO();
+        BasePagamentoDAO dao = new PagamentoDAO();
         boolean sucesso = dao.registrarPagamento(pagamento);
         System.out.println("Pagamento inserido? " + sucesso);
     }
 
     public static void buscarPagamento() {
-        PagamentoDAO dao = new PagamentoDAO();
+        BasePagamentoDAO dao = new PagamentoDAO();
         Pagamento pagamento = dao.getPagamento(89); // cod_pagamento
 
         if (pagamento != null) {
@@ -42,7 +43,7 @@ public class ConsumirPagamento {
     }
 
     public static void atualizarStatusPagamento() {
-        PagamentoDAO dao = new PagamentoDAO();
+        BasePagamentoDAO dao = new PagamentoDAO();
         boolean atualizado = dao.atualizarStatus(89, "Falhou");
         System.out.println("Status atualizado? " + atualizado);
     }

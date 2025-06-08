@@ -4,9 +4,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import interfacesDAO.BasePagamentoDAO;
 import objetos.Pagamento;
 
-public class PagamentoDAO {
+/**
+ * Classe DAO para o controle de pagamentos
+ */
+public class PagamentoDAO implements BasePagamentoDAO {
 
     private final BD bd = new BD();
 
@@ -30,7 +34,13 @@ public class PagamentoDAO {
         bd.getConnection();
     }
 
-    public boolean registrarPagamento(Pagamento pagamento) {
+    /**
+     * Método que registra um novo pagamento no banco de dados
+     * @param pagamento
+     * @return boolean
+     */
+    @Override
+	public boolean registrarPagamento(Pagamento pagamento) {
         try (PreparedStatement stmt = bd.connection.prepareStatement(INSERIR_PAGAMENTO)) {
             int i = 1;
             stmt.setInt(i++, pagamento.getCod_pagamento());
@@ -49,7 +59,12 @@ public class PagamentoDAO {
         }
     }
 
-    public List<Pagamento> listarPagamentos() {
+    /**
+     * Lista todos os pagamentos disponiveis
+     * @return list
+     */
+    @Override
+	public List<Pagamento> listarPagamentos() {
         List<Pagamento> lista = new ArrayList<>();
         try (PreparedStatement stmt = bd.connection.prepareStatement(LISTAR_PAGAMENTOS);
              ResultSet rs = stmt.executeQuery()) {
@@ -73,7 +88,13 @@ public class PagamentoDAO {
         return lista;
     }
 
-    public Pagamento getPagamento(int cod_pagamento) {
+    /**
+     * Pega os dados de um pagamento com base no cod_pagamento fornecido 
+     * @param cod_pagamento
+     * @return objeto pagamento
+     */
+    @Override
+	public Pagamento getPagamento(int cod_pagamento) {
         Pagamento pagamento = null;
         try (PreparedStatement stmt = bd.connection.prepareStatement(BUSCAR_PAGAMENTO)) {
             stmt.setInt(1, cod_pagamento);
@@ -96,7 +117,14 @@ public class PagamentoDAO {
         return pagamento;
     }
 
-    public boolean atualizarStatus(int cod_pagamento, String novoStatus) {
+    /**
+     * Atualiza o status do pagamento especificado
+     * @param cod_pagamento
+     * @param novoStatus
+     * @return boolean
+     */
+    @Override
+	public boolean atualizarStatus(int cod_pagamento, String novoStatus) {
         try (PreparedStatement stmt = bd.connection.prepareStatement(ATUALIZAR_STATUS)) {
             stmt.setString(1, novoStatus);
             stmt.setInt(2, cod_pagamento);
@@ -111,7 +139,13 @@ public class PagamentoDAO {
         }
     }
 
-    public boolean excluirPagamento(int cod_pagamento) {
+    /**
+     * Exclui um pagamento com base no codigo fornecido
+     * @param cod_pagamento
+     * @return boolean
+     */
+    @Override
+	public boolean excluirPagamento(int cod_pagamento) {
         try (PreparedStatement stmt = bd.connection.prepareStatement(EXCLUIR_PAGAMENTO)) {
             stmt.setInt(1, cod_pagamento);
             int linhasAfetadas = stmt.executeUpdate();

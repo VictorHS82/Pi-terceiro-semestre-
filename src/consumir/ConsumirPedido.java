@@ -1,6 +1,7 @@
 package consumir;
 
 import banco_de_dados.PedidoDAO;
+import interfacesDAO.BasePedidoDAO;
 import objetos.Item_pedido;
 import objetos.Pedido;
 
@@ -29,7 +30,7 @@ public class ConsumirPedido {
                 "Pendente"  // status
         );
 
-        PedidoDAO dao = new PedidoDAO();
+        BasePedidoDAO dao = new PedidoDAO();
         boolean sucesso = dao.criarPedido(pedido);
         System.out.println("Criar pedido: " + sucesso);
     }
@@ -43,13 +44,13 @@ public class ConsumirPedido {
                 45.0f // preco_na_compra
         );
 
-        PedidoDAO dao = new PedidoDAO();
+        BasePedidoDAO dao = new PedidoDAO();
         boolean sucesso = dao.adicionarItemPedido(item);
         System.out.println("Adicionar item ao pedido: " + sucesso);
     }
 
     public static void testarListarItensPedido() {
-        PedidoDAO dao = new PedidoDAO();
+        BasePedidoDAO dao = new PedidoDAO();
         List<Item_pedido> itens = dao.listarItensPedido(8); // cod_pedido existente
 
         System.out.println("Itens do pedido:");
@@ -60,13 +61,13 @@ public class ConsumirPedido {
     }
 
     public static void testarExcluirItemPedido() {
-        PedidoDAO dao = new PedidoDAO();
+        BasePedidoDAO dao = new PedidoDAO();
         boolean sucesso = dao.excluirItemPedido(1); // cod_item_pedido existente
         System.out.println("Excluir item do pedido: " + sucesso);
     }
 
     public static void testarExcluirPedido() {
-        PedidoDAO dao = new PedidoDAO();
+        BasePedidoDAO dao = new PedidoDAO();
         boolean sucesso = dao.excluirPedido(8); // cod_pedido existente
         System.out.println("Excluir pedido: " + sucesso);
     }
