@@ -3,70 +3,16 @@ package objetos;
 /**
  * Representa um cliente do sistema, com informações pessoais e ações relacionadas a compras.
  */
-public class Cliente {
-	private int cod_cliente;
-	private String nome;
+public class Cliente extends Usuario {
 	private String cpf;
 	private String endereco;
+	private String telefone;
 
-	/**
-	 * Realiza um pedido com os itens adicionados ao carrinho.
-	 * (Método ainda não implementado)
-	 */
-	public static void FazerPedido() {
-		
-	}
-
-	/**
-	 * Adiciona um livro ao carrinho de compras do cliente.
-	 * (Método ainda não implementado)
-	 */
-	public static void AdicionarAoCarrinho() {
-		
-	}
-
-	/**
-	 * Permite ao cliente visualizar os detalhes de um livro.
-	 * (Método ainda não implementado)
-	 */
-	public static void VizualisarLivro() {
-		
-	}
-
-	/**
-	 * Realiza o pagamento do pedido efetuado pelo cliente.
-	 * (Método ainda não implementado)
-	 */
-	public static void RealizarPagamento() {
-		
-	}
-
-	/**
-	 * @return o código identificador do cliente
-	 */
-	public int getCod_cliente() {
-		return cod_cliente;
-	}
-
-	/**
-	 * @param cod_cliente define o código identificador do cliente
-	 */
-	public void setCod_cliente(int cod_cliente) {
-		this.cod_cliente = cod_cliente;
-	}
-
-	/**
-	 * @return o nome do cliente
-	 */
-	public String getNome() {
-		return nome;
-	}
-
-	/**
-	 * @param nome define o nome do cliente
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
+	public Cliente(int cod_usuario, String nome, String senha, String email, String cpf, String endereco, String telefone) {
+		super(cod_usuario, nome, senha, email);
+		this.cpf = cpf;
+		this.endereco = endereco;
+		this.telefone = telefone;
 	}
 
 	/**
@@ -96,4 +42,18 @@ public class Cliente {
 	public void setEndreço(String endereco) {
 		this.endereco = endereco;
 	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	
 }
