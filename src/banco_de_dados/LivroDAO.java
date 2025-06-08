@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import interfacesDAO.testedao;
+import interfacesDAO.BaseLivroDAO;
 import objetos.Livros;
 
 /**
@@ -12,7 +12,7 @@ import objetos.Livros;
  * Capaz de manipular a entidade livro do Banco de dados
  */
 
-public class LivroDAO implements testedao {
+public class LivroDAO implements BaseLivroDAO {
 
 private final BD bd = new BD();
 
@@ -257,35 +257,5 @@ public boolean deletarLivro(String cod_livro) {
             bd.close();
         }
     }
-
-@Override
-public boolean post() {
-	//TODO Auto-generated method stub
-	return false;
-}
-
-@Override
-public Object get() {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-@Override
-public boolean update() {
-	// TODO Auto-generated method stub
-	return false;
-}
-
-@Override
-public boolean delete() {
-	// TODO Auto-generated method stub
-	return false;
-}
-
-@Override
-public List<Object> list() {
-	// TODO Auto-generated method stub
-	return null;
-}
 
 }

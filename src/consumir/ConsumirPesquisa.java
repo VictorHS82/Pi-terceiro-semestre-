@@ -1,13 +1,15 @@
 package consumir;
 
 import java.util.List;
+
 import banco_de_dados.Pesquisa;
+import interfacesDAO.BasePesquisa;
 import objetos.Livros;
 
 public class ConsumirPesquisa {
 
 	public static void main(String[] args) {
-		Pesquisa dao = new Pesquisa();
+		BasePesquisa dao = new Pesquisa();
 		
 		String termoBusca = "Carlos Souza";
 		Integer maxPaginas = 600;

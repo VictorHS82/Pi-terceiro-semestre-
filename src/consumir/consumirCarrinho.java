@@ -1,13 +1,14 @@
 package consumir;
 
 import banco_de_dados.CarrinhoDAO;
+import interfacesDAO.BaseCarrinhoDAO;
 import objetos.Carrinho;
 import objetos.Item_carrinho;
 import java.util.List;
 
 public class consumirCarrinho {
 
-    static CarrinhoDAO dao = new CarrinhoDAO();
+    static BaseCarrinhoDAO dao = new CarrinhoDAO();
 
     public static void main(String[] args) {
         //criarCarrinhoDeTeste();
