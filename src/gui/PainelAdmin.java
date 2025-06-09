@@ -12,9 +12,9 @@ public class PainelAdmin extends JPanel {
 
         // Painéis para cada tipo de dado
         abasAdmin.addTab("Livros", new AdminLivrosPanel());
-        abasAdmin.addTab("Usuários", new AdminUsuariosPanel());
-        abasAdmin.addTab("Pedidos", new AdminPedidosPanel());
-        abasAdmin.addTab("Pagamentos", new AdminPagamentosPanel());
+        abasAdmin.addTab("Contas", new PainelContas());
+        abasAdmin.addTab("Pedidos", new PainelPedidos());
+        abasAdmin.addTab("Pagamentos", new PainelPagamentos());
 
         add(abasAdmin, BorderLayout.CENTER);
     }
