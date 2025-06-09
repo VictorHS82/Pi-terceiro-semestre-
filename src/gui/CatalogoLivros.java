@@ -14,7 +14,7 @@ import objetos.Item_carrinho;
 import objetos.Pedido;
 import objetos.Pagamento;
 
-public class CatalogoLivros extends JFrame {
+public class CatalogoLivros extends JPanel {
     private LivroDAO livroDAO;
     private CarrinhoDAO carrinhoDAO;
     private PedidoDAO pedidoDAO;
@@ -24,7 +24,7 @@ public class CatalogoLivros extends JFrame {
     private int codClienteAtual = 1; // Temporário - deve vir do login
     private JButton cartButton;
 
-    public CatalogoLivros() {
+    public CatalogoLivros(MainFrame maninFrame) {
         livroDAO = new LivroDAO();
         carrinhoDAO = new CarrinhoDAO();
         pedidoDAO = new PedidoDAO();

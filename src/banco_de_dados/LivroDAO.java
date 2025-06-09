@@ -245,11 +245,11 @@ public boolean atualizarLivro(Livros livro) {
  * @return linhasAfetadas quantida de linhas deletadas
  */
 @Override
-public boolean deletarLivro(String cod_livro) {
+public boolean deletarLivro(int cod_livro) {
         String query = deletar_livro;
 
         try (PreparedStatement stmt = bd.connection.prepareStatement(query)) {
-            stmt.setString(1, cod_livro);
+            stmt.setInt(1, cod_livro);
 
             int linhasAfetadas = stmt.executeUpdate();
             bd.connection.commit();

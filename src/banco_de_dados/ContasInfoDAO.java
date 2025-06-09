@@ -1,10 +1,10 @@
-package interfacesDAO;
+package banco_de_dados;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import banco_de_dados.BD;
+import interfacesDAO.BaseContasDAO;
 import objetos.ContaInfo;
 
 /**

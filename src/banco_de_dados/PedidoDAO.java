@@ -182,4 +182,39 @@ public class PedidoDAO implements BasePedidoDAO {
 	            bd.close();
 	        }
 	    }
+
+	    /**
+	     * Lista todos os pedidos no banco de dados
+	     * @return
+	     */
+	    public List<Pedido> listarTodosPedidos() {
+	        List<Pedido> pedidos = new ArrayList<>();
+	        String sql = "SELECT * FROM PEDIDO";
+
+	        try (PreparedStatement stmt = bd.connection.prepareStatement(sql);
+	             ResultSet rs = stmt.executeQuery()) {
+
+	            while (rs.next()) {
+	                Pedido pedido = new Pedido(
+	                    rs.getInt("cod_pedido"),
+	                    rs.getInt("cod_cliente"),
+	                    rs.getFloat("desconto"),
+	                    rs.getFloat("valor_frete"),
+	                    rs.getFloat("subtotal"),
+	                    rs.getFloat("valor_total"),
+	                    rs.getString("status")
+	                );
+	                pedidos.add(pedido);
+	            }
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        } finally {
+	            bd.close();
+	        }
+
+	        return pedidos;
+	    }
+
+
 	} 
