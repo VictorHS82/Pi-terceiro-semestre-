@@ -17,8 +17,10 @@ public class PainelAdministrativo extends JFrame {
     private JTabbedPane tabbedPane;
     private static final int IMAGE_WIDTH = 100;
     private static final int IMAGE_HEIGHT = 150;
+    private TelaPrincipal telaPrincipal;
 
-    public PainelAdministrativo() {
+    public PainelAdministrativo(TelaPrincipal telaPrincipal) {
+        this.telaPrincipal = telaPrincipal;
         livroDAO = new LivroDAO();
         pedidoDAO = new PedidoDAO();
         pagamentoDAO = new PagamentoDAO();
@@ -31,6 +33,14 @@ public class PainelAdministrativo extends JFrame {
         setSize(1000, 700);
         setLocationRelativeTo(null);
 
+        // Add window listener to show main screen when this window is closed
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                telaPrincipal.setVisible(true);
+            }
+        });
+
         tabbedPane = new JTabbedPane();
         
         // Adiciona as abas
@@ -38,7 +48,21 @@ public class PainelAdministrativo extends JFrame {
         tabbedPane.addTab("Pedidos", createPedidosPanel());
         tabbedPane.addTab("Pagamentos", createPagamentosPanel());
 
-        add(tabbedPane);
+        // Add return button panel
+        JPanel returnPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JButton returnButton = new JButton("Voltar para Tela Principal");
+        returnButton.addActionListener(e -> {
+            telaPrincipal.setVisible(true);
+            dispose();
+        });
+        returnPanel.add(returnButton);
+
+        // Create main panel with border layout
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.add(tabbedPane, BorderLayout.CENTER);
+        mainPanel.add(returnPanel, BorderLayout.SOUTH);
+
+        add(mainPanel);
     }
 
     private JPanel createLivrosPanel() {
