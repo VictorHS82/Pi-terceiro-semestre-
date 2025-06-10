@@ -3,6 +3,9 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Classe para o controle das telas relacionadas ao Painel Administrativo
+ */
 public class PainelAdmin extends JPanel {
     public PainelAdmin(MainFrame mainFrame, int codClienteAtual) {
         setLayout(new BorderLayout());

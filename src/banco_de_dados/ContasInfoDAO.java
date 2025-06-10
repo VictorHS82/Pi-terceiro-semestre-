@@ -4,13 +4,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import interfacesDAO.BaseContasDAO;
+import interfacesDAO.BaseContasInfoDAO;
 import objetos.ContaInfo;
 
 /**
  * Classe DAO para a exibição de informação das contas
  */
-public class ContasInfoDAO implements BaseContasDAO {
+public class ContasInfoDAO implements BaseContasInfoDAO {
 
     private final BD bd = new BD();
 
@@ -23,7 +23,7 @@ public class ContasInfoDAO implements BaseContasDAO {
 
     /**
 	 * Listas todas as contas do sistema, seja administradores ou clientes
-	 * @return list
+	 * @return lista com todas as contas do sistema
 	 */
     @Override
 	public List<ContaInfo> listarTodasContas() {

@@ -20,7 +20,6 @@ public class BD {
    }
    /**
     * Método responsavél pora realizar a conexão com o banco de dados
-    * @return false caso não se conecte
     * @return true caso se conecte
     */
    public boolean getConnection() {

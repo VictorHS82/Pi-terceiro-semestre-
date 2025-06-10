@@ -3,6 +3,9 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Classe que modela a tela de login
+ */
 public class TelaLogin extends JPanel {
     private final MainFrame mainFrame;
 
@@ -11,6 +14,9 @@ public class TelaLogin extends JPanel {
         initializeUI();
     }
 
+    /**
+     * Class quê incializa a tela de Login
+     */
     private void initializeUI() {
         setLayout(new BorderLayout());
 

@@ -42,8 +42,8 @@ public class PedidoDAO implements BasePedidoDAO {
 
 	    /**
 	     * Cadastra um novo pedido no banco de dados
-	     * @param pedido
-	     * @return boolean
+	     * @param pedido objeto pedido a ser cadastrado
+	     * @return boolean para sinalizar se foi bem sucedidos
 	     */
 	    @Override
 		public boolean criarPedido(Pedido pedido) {
@@ -68,8 +68,8 @@ public class PedidoDAO implements BasePedidoDAO {
 
 	    /**
 	     * Adiciona um item_pedido ao banco de dados, e o vínculo a um pedidos
-	     * @param item
-	     * @return boolean
+	     * @param item objeto item_pedido a ser cadastrado
+	     * @return boolean para sinalizar se foi bem sucedido
 	     */
 	    @Override
 		public boolean adicionarItemPedido(Item_pedido item) {
@@ -93,8 +93,8 @@ public class PedidoDAO implements BasePedidoDAO {
 
 	    /**
 	     * Lista todos os itens_pedido vinculados a um pedido
-	     * @param cod_pedido
-	     * @return list
+	     * @param cod_pedido código do pedido a ter seus itens listados
+	     * @return lista com tuplas item_pedido ligadas ao código inserido
 	     */
 	    @Override
 		public List<Item_pedido> listarItensPedido(int cod_pedido) {
@@ -123,8 +123,8 @@ public class PedidoDAO implements BasePedidoDAO {
 
 	    /**
 	     * Exclui um item pedido do banco de dados
-	     * @param cod_item_pedido
-	     * @return boolean
+	     * @param cod_item_pedido código do item a ser excluído
+	     * @return boolean para sinalizar se foi bem sucedido
 	     */
 	    @Override
 		public boolean excluirItemPedido(int cod_item_pedido) {
@@ -143,8 +143,8 @@ public class PedidoDAO implements BasePedidoDAO {
 
 	    /**
 	     * Exclui um pedido bo banco de dados
-	     * @param cod_pedido
-	     * @return boolean
+	     * @param cod_pedido código do pedido a ser excluído
+	     * @return boolean para sinalizar se foi bem sucedido
 	     */
 	    @Override
 		public boolean excluirPedido(int cod_pedido) {
@@ -163,9 +163,9 @@ public class PedidoDAO implements BasePedidoDAO {
 	    
 	    /**
 	     * Atualiza o status de um pedido segundo o cod_pedido
-	     * @param cod_pedido
-	     * @param novoStatus
-	     * @return boolean
+	     * @param cod_pedido código do pedido a ser atualizado
+	     * @param novoStatus novo status a ser registrado no banco de dados
+	     * @return boolean para sinalizar se foi bem sucedido
 	     */
 	    @Override
 		public boolean atualizarStatus(int cod_pedido, String novoStatus) {
@@ -185,9 +185,10 @@ public class PedidoDAO implements BasePedidoDAO {
 
 	    /**
 	     * Lista todos os pedidos no banco de dados
-	     * @return
+	     * @return lista com os todos os pedidos do banco de dados
 	     */
-	    public List<Pedido> listarTodosPedidos() {
+	    @Override
+		public List<Pedido> listarTodosPedidos() {
 	        List<Pedido> pedidos = new ArrayList<>();
 	        String sql = "SELECT * FROM PEDIDO";
 

@@ -44,204 +44,227 @@ public class Livros {
 		this.imagem = imagem;
 	}
 
-	public int getCod_livro() {
-		return cod_livro;
-	}
-
-	public void setCod_livro(int cod_livro) {
-		this.cod_livro = cod_livro;
-	}
-
 	/**
-	 * @return o título do livro
+	 * Retorna o título do livro.
+	 * @return String contendo o título do livro
 	 */
 	public String getTitulo() {
 		return titulo;
 	}
 
 	/**
-	 * @param titulo define o título do livro
+	 * Define o título do livro.
+	 * @param titulo título do livro
 	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
 	/**
-	 * @return o autor do livro
+	 * Retorna o autor do livro.
+	 * @return String contendo o autor do livro
 	 */
 	public String getAutor() {
 		return autor;
 	}
 
 	/**
-	 * @param autor define o autor do livro
+	 * Define o autor do livro.
+	 * @param autor autor do livro
 	 */
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
 
 	/**
-	 * @return a descrição do livro
+	 * Retorna a descrição do livro.
+	 * @return String contendo a descrição do livro
 	 */
 	public String getDescricao() {
 		return descricao;
 	}
 
 	/**
-	 * @param descricao define a descrição do livro
+	 * Define a descrição do livro.
+	 * @param descricao descrição do livro
 	 */
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 
 	/**
-	 * @return o preço unitário do livro
+	 * Retorna o ano de publicação do livro.
+	 * @return String contendo o ano de publicação
 	 */
-	public float getPrecoUnid() {
-		return preco_unitario;
-	}
-
-	/**
-	 * @param precoUnid define o preço unitário do livro
-	 */
-	public void setPrecoUnid(float preco_unitario) {
-		this.preco_unitario = preco_unitario;
-	}
-
-	/**
-	 * @return o ano de publicação do livro
-	 */
-	public String getAnoPublicacao() {
+	public String getAnopublicacao() {
 		return anopublicacao;
 	}
 
 	/**
-	 * @param publicacao define o ano de publicação do livro
+	 * Define o ano de publicação do livro.
+	 * @param anopublicacao ano de publicação
 	 */
-	public void setPublicacao(String anopublicacao) {
+	public void setAnopublicacao(String anopublicacao) {
 		this.anopublicacao = anopublicacao;
 	}
 
 	/**
-	 * @return o número ISBN do livro
+	 * Retorna o ISBN do livro.
+	 * @return String contendo o ISBN do livro
 	 */
 	public String getIsbn() {
 		return isbn;
 	}
 
 	/**
-	 * @param isbn define o número ISBN do livro
+	 * Define o ISBN do livro.
+	 * @param isbn ISBN do livro
 	 */
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
 
 	/**
-	 * @return o gênero do livro
+	 * Retorna o gênero do livro.
+	 * @return String contendo o gênero do livro
 	 */
 	public String getGenero() {
 		return genero;
 	}
 
 	/**
-	 * @param genero define o gênero do livro
+	 * Define o gênero do livro.
+	 * @param genero gênero do livro
 	 */
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
 
 	/**
-	 * @return o idioma do livro
+	 * Retorna o idioma do livro.
+	 * @return String contendo o idioma do livro
 	 */
 	public String getIdioma() {
 		return idioma;
 	}
 
 	/**
-	 * @param idioma define o idioma do livro
+	 * Define o idioma do livro.
+	 * @param idioma idioma do livro
 	 */
 	public void setIdioma(String idioma) {
 		this.idioma = idioma;
 	}
 
 	/**
-	 * @return o formato do livro (ex: brochura, capa dura)
+	 * Retorna o formato do livro.
+	 * @return String contendo o formato do livro
 	 */
 	public String getFormato() {
 		return formato;
 	}
 
 	/**
-	 * @param formato define o formato do livro
+	 * Define o formato do livro.
+	 * @param formato formato do livro
 	 */
 	public void setFormato(String formato) {
 		this.formato = formato;
 	}
 
 	/**
-	 * @return o número de páginas do livro
+	 * Retorna a imagem do livro.
+	 * @return String contendo o caminho da imagem do livro
+	 */
+	public String getImagem() {
+		return imagem;
+	}
+
+	/**
+	 * Define a imagem do livro.
+	 * @param imagem caminho da imagem do livro
+	 */
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
+	/**
+	 * Retorna o código do livro.
+	 * @return int contendo o código do livro
+	 */
+	public int getCod_livro() {
+		return cod_livro;
+	}
+
+	/**
+	 * Define o código do livro.
+	 * @param cod_livro código do livro
+	 */
+	public void setCod_livro(int cod_livro) {
+		this.cod_livro = cod_livro;
+	}
+
+	/**
+	 * Retorna o número de páginas do livro.
+	 * @return int contendo o número de páginas
 	 */
 	public int getPaginas() {
 		return paginas;
 	}
 
 	/**
-	 * @param paginas define o número de páginas do livro
+	 * Define o número de páginas do livro.
+	 * @param paginas número de páginas
 	 */
 	public void setPaginas(int paginas) {
 		this.paginas = paginas;
 	}
 
 	/**
-	 * @return o peso do livro em gramas
-	 */
-	public float getPeso() {
-		return peso;
-	}
-
-	/**
-	 * @param peso define o peso do livro em gramas
-	 */
-	public void setPeso(float peso) {
-		this.peso = peso;
-	}
-
-	/**
-	 * @return a quantidade disponível em estoque
+	 * Retorna a quantidade disponível do livro.
+	 * @return int contendo a quantidade disponível
 	 */
 	public int getQuantidade() {
 		return quantidade;
 	}
 
 	/**
-	 * @param quantidade define a quantidade disponível em estoque
+	 * Define a quantidade disponível do livro.
+	 * @param quantidade quantidade disponível
 	 */
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public String getAnopublicacao() {
-		return anopublicacao;
+	/**
+	 * Retorna o peso do livro.
+	 * @return float contendo o peso do livro
+	 */
+	public float getPeso() {
+		return peso;
 	}
 
-	public void setAnopublicacao(String anopublicacao) {
-		this.anopublicacao = anopublicacao;
+	/**
+	 * Define o peso do livro.
+	 * @param peso peso do livro
+	 */
+	public void setPeso(float peso) {
+		this.peso = peso;
 	}
 
+	/**
+	 * Retorna o preço unitário do livro.
+	 * @return float contendo o preço unitário
+	 */
 	public float getPreco_unitario() {
 		return preco_unitario;
 	}
 
+	/**
+	 * Define o preço unitário do livro.
+	 * @param preco_unitario preço unitário
+	 */
 	public void setPreco_unitario(float preco_unitario) {
 		this.preco_unitario = preco_unitario;
 	}
-
-	public String getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
-	}
-
 }

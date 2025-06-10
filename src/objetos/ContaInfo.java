@@ -32,30 +32,58 @@ public class ContaInfo {
         this.criadoPor = criadoPor;
     }
 
+    /**
+     * Retorna o tipo da conta.
+     * @return String contendo o tipo da conta (Usuário ou Administrador)
+     */
     public String getTipoConta() {
         return tipoConta;
     }
 
+    /**
+     * Retorna o id da conta.
+     * @return int contendo o id da conta
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Retorna o nome da conta.
+     * @return String contendo o nome da conta
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Retorna o email da conta.
+     * @return String contendo o email da conta
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Retorna o telefone da conta.
+     * @return String contendo o telefone da conta
+     */
     public String getTelefone() {
         return telefone;
     }
 
+    /**
+     * Retorna o endereço da conta.
+     * @return String contendo o endereço da conta
+     */
     public String getEndereco() {
         return endereco;
     }
 
+    /**
+     * Retorna quem criou a conta (caso seja administrador).
+     * @return String contendo o nome de quem criou a conta
+     */
     public String getCriadoPor() {
         return criadoPor;
     }

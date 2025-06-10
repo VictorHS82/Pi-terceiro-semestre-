@@ -2,13 +2,15 @@ package gui;
 
 import objetos.Livros;
 import objetos.Item_carrinho;
-import banco_de_dados.CarrinhoDAO;
 
 import javax.swing.*;
+
+import interfacesDAO.BaseCarrinhoDAO;
+
 import java.awt.*;
 
 public class DetalhesLivroDialog extends JDialog {
-    public DetalhesLivroDialog(JFrame parent, Livros livro, CarrinhoDAO carrinhoDAO, int codClienteAtual) {
+    public DetalhesLivroDialog(JFrame parent, Livros livro, BaseCarrinhoDAO carrinhoDAO, int codClienteAtual) {
         super(parent, "Detalhes do Livro", true);
         setLayout(new BorderLayout());
 
@@ -31,7 +33,7 @@ public class DetalhesLivroDialog extends JDialog {
         panelInfo.add(new JLabel("Título: " + livro.getTitulo()));
         panelInfo.add(new JLabel("Autor: " + livro.getAutor()));
         panelInfo.add(new JLabel("Descrição: " + livro.getDescricao()));
-        panelInfo.add(new JLabel("Ano: " + livro.getAnoPublicacao()));
+        panelInfo.add(new JLabel("Ano: " + livro.getAnopublicacao()));
         panelInfo.add(new JLabel("ISBN: " + livro.getIsbn()));
         panelInfo.add(new JLabel("Gênero: " + livro.getGenero()));
         panelInfo.add(new JLabel("Idioma: " + livro.getIdioma()));

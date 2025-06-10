@@ -17,15 +17,35 @@ public class Carrinho {
 		this.cod_carrinho = cod_carrinho;
 		this.cod_cliente = cod_cliente;
 	}
+	
+	/**
+	 * Retorna o código do carrinho.
+	 * @return int contendo o código do carrinho
+	 */
 	public int getCod_carrinho() {
 		return cod_carrinho;
 	}
+	
+	/**
+	 * Define o código do carrinho.
+	 * @param cod_carrinho código do carrinho
+	 */
 	public void setCod_carrinho(int cod_carrinho) {
 		this.cod_carrinho = cod_carrinho;
 	}
+	
+	/**
+	 * Retorna o código do cliente.
+	 * @return int contendo o código do cliente
+	 */
 	public int getCod_cliente() {
 		return cod_cliente;
 	}
+	
+	/**
+	 * Define o código do cliente.
+	 * @param cod_cliente código do cliente
+	 */
 	public void setCod_cliente(int cod_cliente) {
 		this.cod_cliente = cod_cliente;
 	}

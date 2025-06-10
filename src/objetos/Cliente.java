@@ -16,44 +16,50 @@ public class Cliente extends Usuario {
 	}
 
 	/**
-	 * @return o CPF do cliente
+	 * Retorna o CPF do cliente.
+	 * @return String contendo o CPF do cliente
 	 */
 	public String getCpf() {
 		return cpf;
 	}
 
 	/**
-	 * @param cpf define o CPF do cliente
+	 * Define o CPF do cliente.
+	 * @param cpf CPF do cliente
 	 */
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
 	/**
-	 * @return o endereço do cliente
+	 * Retorna o endereço do cliente.
+	 * @return String contendo o endereço do cliente
 	 */
 	public String getEndereco() {
 		return endereco;
 	}
 
 	/**
-	 * @param endreço define o endereço do cliente
+	 * Define o endereço do cliente.
+	 * @param endereco endereço do cliente
 	 */
-	public void setEndreço(String endereco) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 
+	/**
+	 * Retorna o telefone do cliente.
+	 * @return String contendo o telefone do cliente
+	 */
 	public String getTelefone() {
 		return telefone;
 	}
 
+	/**
+	 * Define o telefone do cliente.
+	 * @param telefone telefone do cliente
+	 */
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-	
-	
 }

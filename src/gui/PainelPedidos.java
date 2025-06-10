@@ -1,6 +1,7 @@
 package gui;
 
 import banco_de_dados.PedidoDAO;
+import interfacesDAO.BasePedidoDAO;
 import objetos.Pedido;
 
 import javax.swing.*;
@@ -8,6 +9,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Classe que modela o painel pedidos da tela de Administrador
+ */
 public class PainelPedidos extends JPanel {
 
     private JTable tabela;
@@ -26,8 +30,11 @@ public class PainelPedidos extends JPanel {
         add(new JScrollPane(tabela), BorderLayout.CENTER);
     }
 
+    /**
+     * Método que carrega as informações dos pedidos
+     */
     private void carregarPedidos() {
-        PedidoDAO dao = new PedidoDAO();
+        BasePedidoDAO dao = new PedidoDAO();
         modelo.setRowCount(0);
 
         List<Pedido> pedidos = dao.listarTodosPedidos();

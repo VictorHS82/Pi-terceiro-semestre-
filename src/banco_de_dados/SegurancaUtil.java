@@ -11,8 +11,8 @@ public class SegurancaUtil {
 
 	/**
 	 * Controle a criptografia por hash da senha
-	 * @param senha
-	 * @return String
+	 * @param senha senha do usuário
+	 * @return String a ser criptgrafa
 	 */
     public static String gerarHash(String senha) {
         try {

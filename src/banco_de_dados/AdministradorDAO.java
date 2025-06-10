@@ -25,14 +25,17 @@ public class AdministradorDAO implements BaseAdministradorDAO {
     private static final String EXCLUIR = "DELETE FROM administrador "
     		+" WHERE cod_admin = ?";
 
+   /**
+    * Inicia AdministradorDAO
+    */
     public AdministradorDAO() {
         bd.getConnection();
     }
 
     /**
      * Cadastra uma nova conta de Adiministrador no banco de dados
-     * @param admin
-     * @return boolean
+     * @param admin objeto admin a ser criado
+     * @return boolean para sinalizar se foi bem sucedido
      */
     @Override
 	public boolean cadastrarAdministrador(Administrador admin) {
@@ -54,9 +57,9 @@ public class AdministradorDAO implements BaseAdministradorDAO {
 
     /**
      * Valida as informações para login do usuário
-     * @param email
-     * @param senha
-     * @return boolean
+     * @param email email digitado
+     * @param senha senha digitada
+     * @return boolean para sinalizar se foi bem sucedido
      */
     @Override
 	public boolean validarLogin(String email, String senha) {
@@ -75,8 +78,8 @@ public class AdministradorDAO implements BaseAdministradorDAO {
 
     /**
      * Atualiza as informações de uma conta Administradora
-     * @param admin
-     * @return boolean
+     * @param admin administrador a ser atulizado
+     * @return boolea para sinalizar se foi bem sucedido
      */
     @Override
 	public boolean atualizarAdministrador(Administrador admin) {
@@ -99,8 +102,8 @@ public class AdministradorDAO implements BaseAdministradorDAO {
 
     /**
      * Busca uma conta administrador pelo código fornecido
-     * @param cod_admin
-     * @return Administrador
+     * @param cod_admin código do administrador
+     * @return objeto administrador 
      */
     @Override
 	public Administrador buscarAdministrador(int cod_admin) {
@@ -126,8 +129,8 @@ public class AdministradorDAO implements BaseAdministradorDAO {
 
     /**
      * Exclui um conta administradora pelo código fornecido
-     * @param cod_admin
-     * @return boolean
+     * @param cod_admin códido do administrador a excluir
+     * @return boolean para sianlizar se foi bem sucedido ou não
      */
     @Override
 	public boolean excluirAdministrador(int cod_admin) {
