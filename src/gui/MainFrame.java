@@ -29,9 +29,10 @@ public class MainFrame extends JFrame {
         revalidate();
         repaint();
     }
-    public void mostrarTelaAdminLivros() {
-    setContentPane(new AdminLivrosPanel());
-    revalidate();
-    repaint();
-}
+
+    public void mostrarPainelAdmin(int codClienteAtual) {
+        setContentPane(new PainelAdmin(this, codClienteAtual));
+        revalidate();
+        repaint();
+    }
 }

@@ -46,7 +46,7 @@ public class CatalogoLivros extends JPanel {
         add(btnCarrinho, BorderLayout.SOUTH);
 
         JButton btnAdmin = new JButton("Administração");
-        btnAdmin.addActionListener(e -> mainFrame.setContentPane(new AdminLivrosPanel()));
+        btnAdmin.addActionListener(e -> mainFrame.mostrarPainelAdmin(codClienteAtual));
         add(btnAdmin, BorderLayout.EAST);
 
         carregarLivros();
@@ -90,8 +90,12 @@ public class CatalogoLivros extends JPanel {
     JLabel lblPreco = new JLabel("Preço: R$" + livro.getPreco_unitario());
     JLabel lblEstoque = new JLabel("Estoque: " + livro.getQuantidade());
     JButton btnAdicionar = new JButton("Adicionar ao Carrinho");
+    btnAdicionar.addActionListener(e -> {
+        JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+        DetalhesLivroDialog dialog = new DetalhesLivroDialog(parentFrame, livro, carrinhoDAO, codClienteAtual);
+        dialog.setVisible(true);
+    });
 
-    btnAdicionar.addActionListener(e -> adicionarAoCarrinho(livro));
 
     panelLivro.add(lblImagem);
     panelLivro.add(lblTitulo);
@@ -103,11 +107,11 @@ public class CatalogoLivros extends JPanel {
     return panelLivro;
 }
 
-    private void adicionarAoCarrinho(Livros livro) {
-        Item_carrinho item = new Item_carrinho(0, 1, livro.getCod_livro(), livro.getTitulo(), 1, livro.getPreco_unitario());
-        carrinhoDAO.post(item);
-        JOptionPane.showMessageDialog(this, "Livro adicionado ao carrinho.");
-    }
+    // private void adicionarAoCarrinho(Livros livro) {
+    //     Item_carrinho item = new Item_carrinho(0, 1, livro.getCod_livro(), livro.getTitulo(), 1, livro.getPreco_unitario());
+    //     carrinhoDAO.post(item);
+    //     JOptionPane.showMessageDialog(this, "Livro adicionado ao carrinho.");
+    // }
 
     private void mostrarCarrinho() {
         List<Item_carrinho> itens = carrinhoDAO.get(1);
