@@ -45,6 +45,6 @@ public interface BaseLivroDAO {
 	 * @param cod_livro código do livro a ser deletado
 	 * @return linhasAfetadas quantida de linhas deletadas
 	 */
-	boolean deletarLivro(String cod_livro);
+	boolean deletarLivro(int cod_livro);
 
 }

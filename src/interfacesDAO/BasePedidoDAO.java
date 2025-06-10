@@ -49,5 +49,11 @@ public interface BasePedidoDAO {
 	 * @return boolean
 	 */
 	boolean atualizarStatus(int cod_pedido, String novoStatus);
+	
+	  /**
+     * Lista todos os pedidos no banco de dados
+     * @return
+     */
+    public List<Pedido> listarTodosPedidos();
 
 }
