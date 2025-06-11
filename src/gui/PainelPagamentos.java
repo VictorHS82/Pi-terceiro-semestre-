@@ -1,6 +1,7 @@
 package gui;
 
 import banco_de_dados.PagamentoDAO;
+import interfacesDAO.BasePagamentoDAO;
 import objetos.Pagamento;
 
 import javax.swing.*;
@@ -8,11 +9,17 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Classe que modela o painel de pagamentos relacionada ao painel administrativa
+ */
 public class PainelPagamentos extends JPanel {
 
     private JTable tabela;
     private DefaultTableModel modelo;
 
+    /**
+     * Método quê modela o painel pagamentos
+     */
     public PainelPagamentos() {
         setLayout(new BorderLayout());
 
@@ -26,8 +33,11 @@ public class PainelPagamentos extends JPanel {
         add(new JScrollPane(tabela), BorderLayout.CENTER);
     }
 
+    /**
+     * Método para carregar as informações de pagamento
+     */
     private void carregarPagamentos() {
-        PagamentoDAO dao = new PagamentoDAO();
+        BasePagamentoDAO dao = new PagamentoDAO();
         modelo.setRowCount(0);
 
         List<Pagamento> pagamentos = dao.listarPagamentos();

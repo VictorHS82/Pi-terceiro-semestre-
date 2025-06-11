@@ -7,18 +7,50 @@ import java.util.List;
 import javax.swing.*;
 
 import banco_de_dados.*;
+import interfacesDAO.BaseCarrinhoDAO;
+import interfacesDAO.BaseLivroDAO;
+import interfacesDAO.BasePagamentoDAO;
+import interfacesDAO.BasePedidoDAO;
 import objetos.*;
 
+/**
+ * Classe que modela a tela pricnipal dp catolog de livros
+ */
 public class CatalogoLivros extends JPanel {
-    private final MainFrame mainFrame;
-    private final LivroDAO livroDAO;
-    private final CarrinhoDAO carrinhoDAO;
-    private final PedidoDAO pedidoDAO;
-    private final PagamentoDAO pagamentoDAO;
+    /**
+     * Recebe mainFrame
+     */
+	private final MainFrame mainFrame;
+	/**
+	 * Recebe LivroDAO
+	 */
+    private final BaseLivroDAO livroDAO;
+    /**
+     * Recebe carrinhoDAO
+     */
+    private final BaseCarrinhoDAO carrinhoDAO;
+    /**
+     * Recebe pedidoDAO
+     */
+    private final BasePedidoDAO pedidoDAO;
+    /**
+     * Recebe pagamentoDAO
+     */
+    private final BasePagamentoDAO pagamentoDAO;
+    /**
+     * Recebe código cliente
+     */
     private final int codClienteAtual;
-
+    /**
+     * Recebe painelCatalogo
+     */
     private JPanel panelCatalogo;
 
+    /**
+     * Inicilizador da classe Catalogo livros
+     * @param mainFrame mainframe quê conecta as telas
+     * @param codClienteAtual código atual do cliente quê está usando o sistema
+     */
     public CatalogoLivros(MainFrame mainFrame, int codClienteAtual) {
         this.mainFrame = mainFrame;
         this.codClienteAtual = codClienteAtual;
@@ -30,6 +62,9 @@ public class CatalogoLivros extends JPanel {
         initializeUI();
     }
 
+    /**
+     * Inicializa a tela
+     */
     private void initializeUI() {
         setLayout(new BorderLayout());
         JLabel tituloLabel = new JLabel("Catálogo de Livros", SwingConstants.CENTER);
@@ -52,6 +87,9 @@ public class CatalogoLivros extends JPanel {
         carregarLivros();
     }
 
+    /**
+     * Carrega a exibição dos livros na tela principal
+     */
     private void carregarLivros() {
         panelCatalogo.removeAll();
         List<Livros> livros = livroDAO.listarTodos();
@@ -65,6 +103,11 @@ public class CatalogoLivros extends JPanel {
         panelCatalogo.repaint();
     }
 
+    /**
+     * Cria uma exibição das informações dos livros na tela principal
+     * @param livro
+     * @return JPanel
+     */
     private JPanel criarPainelLivro(Livros livro) {
     JPanel panelLivro = new JPanel();
     panelLivro.setLayout(new BoxLayout(panelLivro, BoxLayout.Y_AXIS));
@@ -113,6 +156,9 @@ public class CatalogoLivros extends JPanel {
     //     JOptionPane.showMessageDialog(this, "Livro adicionado ao carrinho.");
     // }
 
+    /**
+     * Mostra o carrinho
+     */
     private void mostrarCarrinho() {
         List<Item_carrinho> itens = carrinhoDAO.get(1);
         StringBuilder sb = new StringBuilder();
@@ -136,6 +182,11 @@ public class CatalogoLivros extends JPanel {
         }
     }
 
+    /**
+     * Permite a escolha de pagamentos
+     * @param itens
+     * @param total
+     */
     private void escolherFormaPagamento(List<Item_carrinho> itens, double total) {
         String[] opcoes = {"PIX", "Cartão de Crédito", "Boleto Bancário"};
         int escolha = JOptionPane.showOptionDialog(this, "Escolha a forma de pagamento:", "Pagamento",
@@ -147,6 +198,12 @@ public class CatalogoLivros extends JPanel {
         }
     }
 
+    /**
+     * Modela a tela de confirmasrPagamento
+     * @param itens
+     * @param total
+     * @param formaPagamento
+     */
   private void confirmarPedido(List<Item_carrinho> itens, double total, String formaPagamento) {
     // Cria o pedido
     Pedido pedido = new Pedido(0, codClienteAtual, 0f, 0f, (float) total, (float) total, "Pendente");

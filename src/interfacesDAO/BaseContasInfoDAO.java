@@ -4,11 +4,14 @@ import java.util.List;
 
 import objetos.ContaInfo;
 
-public interface BaseContasDAO {
+/**
+ * Interface do contasInfoDAO
+ */
+public interface BaseContasInfoDAO {
 
 	/**
 	 * Listas todas as contas do sistema, seja administradores ou clientes
-	 * @return list
+	 * @return lista com todas as contas do sistema
 	 */
 	List<ContaInfo> listarTodasContas();
 

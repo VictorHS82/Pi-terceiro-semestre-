@@ -4,15 +4,13 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * Classe de criptografia de senha
- */
+
 public class SegurancaUtil {
 
 	/**
 	 * Controle a criptografia por hash da senha
-	 * @param senha
-	 * @return String
+	 * @param senha senha do usuário
+	 * @return String a ser criptgrafa
 	 */
     public static String gerarHash(String senha) {
         try {

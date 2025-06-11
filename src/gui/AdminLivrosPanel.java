@@ -4,14 +4,31 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
-import banco_de_dados.LivroDAO;
+
+import banco_de_dados.*;
+import interfacesDAO.BaseLivroDAO;
 import objetos.Livros;
 
+/**
+ * Classe para a tela de Administrador
+ */
 public class AdminLivrosPanel extends JPanel {
-    private JTable tabela;
+    /**
+     * Recebe um obbjeto JTbable   
+     */
+	private JTable tabela;
+	/**
+	 * Recebe lista de livros
+	 */
     private DefaultListModel<Livros> model;
-    private LivroDAO livroDAO;
+    /**
+     * Recebe um livroDAO
+     */
+    private BaseLivroDAO livroDAO;
 
+    /**
+     * Inicia painel admin livros
+     */
     public AdminLivrosPanel() {
         setLayout(new BorderLayout());
         livroDAO = new LivroDAO();
@@ -39,6 +56,10 @@ public class AdminLivrosPanel extends JPanel {
         add(botoes, BorderLayout.SOUTH);
     }
 
+    /**
+     * Classe que carrega os livros na tela
+     * @return informações dos livros
+     */
     private Object[][] carregarDados() {
         List<Livros> livros = livroDAO.listarTodos();
         Object[][] dados = new Object[livros.size()][5];
@@ -47,12 +68,15 @@ public class AdminLivrosPanel extends JPanel {
             dados[i][0] = l.getCod_livro();
             dados[i][1] = l.getTitulo();
             dados[i][2] = l.getAutor();
-            dados[i][3] = l.getPrecoUnid();
+            dados[i][3] = l.getPreco_unitario();
             dados[i][4] = l.getQuantidade();
         }
         return dados;
     }
 
+    /**
+     * Classe da interface gráfica para adiconar um novo livro ao banco
+     */
 private void adicionarLivro() {
     JTextField tituloField = new JTextField();
     JTextField autorField = new JTextField();
@@ -124,6 +148,9 @@ private void adicionarLivro() {
     }
 }
 
+/**
+ * Classe para editar um livro através da onterface gráfica
+ */
 private void editarLivro() {
     int selectedRow = tabela.getSelectedRow();
     if (selectedRow >= 0) {
@@ -133,7 +160,7 @@ private void editarLivro() {
         JTextField tituloField = new JTextField(livroAtual.getTitulo());
         JTextField autorField = new JTextField(livroAtual.getAutor());
         JTextField descricaoField = new JTextField(livroAtual.getDescricao());
-        JTextField anoField = new JTextField(livroAtual.getAnoPublicacao());
+        JTextField anoField = new JTextField(livroAtual.getAnopublicacao());
         JTextField isbnField = new JTextField(livroAtual.getIsbn());
         JTextField generoField = new JTextField(livroAtual.getGenero());
         JTextField idiomaField = new JTextField(livroAtual.getIdioma());
@@ -141,7 +168,7 @@ private void editarLivro() {
         JTextField paginasField = new JTextField(String.valueOf(livroAtual.getPaginas()));
         JTextField estoqueField = new JTextField(String.valueOf(livroAtual.getQuantidade()));
         JTextField pesoField = new JTextField(String.valueOf(livroAtual.getPeso()));
-        JTextField precoField = new JTextField(String.valueOf(livroAtual.getPrecoUnid()));
+        JTextField precoField = new JTextField(String.valueOf(livroAtual.getPreco_unitario()));
         JTextField imagemField = new JTextField(livroAtual.getImagem());
 
         JPanel panel = new JPanel(new GridLayout(0, 1));
@@ -203,7 +230,9 @@ private void editarLivro() {
     }
 }
 
-// Adicione este método auxiliar para atualizar a tabela após adicionar/editar/excluir
+/**
+ * Atualiza a tabela depois de atualizar/editar/excluir umm livro
+ */
 private void atualizarTabela() {
     removeAll();
     String[] colunas = {"ID", "Título", "Autor", "Preço", "Estoque"};
@@ -231,6 +260,9 @@ private void atualizarTabela() {
     repaint();
 }
 
+/**
+ * Exclui um livro 
+ */
     private void excluirLivro() {
         int selectedRow = tabela.getSelectedRow();
         if (selectedRow >= 0) {

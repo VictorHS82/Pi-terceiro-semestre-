@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"objetos"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"banco_de_dados"},{"l":"interfacesDAO"},{"l":"objetos"}];updateSearchResults();

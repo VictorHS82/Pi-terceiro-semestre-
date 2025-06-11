@@ -2,25 +2,36 @@ package banco_de_dados;
 import java.sql.*;
 
 /**
- * Classe genárica de conexão com banco de dados
+ * Classe genérica de conexão
  */
-
 public class BD {
+   /**
+    * Objeto connection
+    */
    public Connection connection = null;
+   /**
+    * Driver de conexão
+    */
    private final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+   /**
+    * Nome do banco de dados
+    */
    private final String DBNAME = "livraria";
+   /**
+    * Url de acesso
+    */
    private final String URL = "jdbc:sqlserver://localhost:1433;database=" + DBNAME + ";encrypt=false";
+   /**
+    * Perfil de login
+    */
    private final String LOGIN = "pi";
+   /**
+    * Senha para login
+    */
    private final String SENHA = "1234";
-   public static void main (String[] args) {
-	   // main com a única função é testar se a classe BD está funcionando
-	   BD bd = new BD();
-	   bd.getConnection();
-	   bd.close();   
-   }
+
    /**
     * Método responsavél pora realizar a conexão com o banco de dados
-    * @return false caso não se conecte
     * @return true caso se conecte
     */
    public boolean getConnection() {

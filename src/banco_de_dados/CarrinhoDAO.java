@@ -32,14 +32,17 @@ public class CarrinhoDAO implements BaseCarrinhoDAO {
 	private static String excluirCarrinho = "DELETE FROM carrinho"
 			+" WHERE cod_carrinho = ?";
 	
+    /**
+     * Iniciliazado CarrinhoDAO
+     */
 	public CarrinhoDAO() {
 		bd.getConnection();
 	}
 	
 	/**
 	 * Classe para criar um carrinho
-	 * @param cod_cliente
-	 * @return boolean
+	 * @param carrinho objeto carrinho
+	 * @return boolean para sinalizar se foi bem sucedido
 	 */
 
 	@Override
@@ -63,8 +66,8 @@ public class CarrinhoDAO implements BaseCarrinhoDAO {
 	
 	/**
 	 * Classe para deletar um carrinho
-	 * @param cod_carrinho
-	 * @return boolean
+	 * @param cod_carrinho código do carrinho a ser deletado
+	 * @return boolean para sinalizar se foi bem sucedido
 	 */
 	@Override
 	public boolean deletarCarrinho(int cod_carrinho) {
@@ -85,8 +88,8 @@ public class CarrinhoDAO implements BaseCarrinhoDAO {
 	
 	/**
 	 * Classe para criar um item_carrinho
-	 * @param item_carrinho
-	 * @return boolean
+	 * @param item_carrinho objeto item_carrinho a ser registrado
+	 * @return boolean para sinalizar se foi bem sucedido
 	 */
 	
 	@Override
@@ -115,7 +118,7 @@ public class CarrinhoDAO implements BaseCarrinhoDAO {
 	/**
 	 * Lista todos os itens_pedido vinculados ao carrinho
 	 * Do usuário
-	 * @param cod_carrinho
+	 * @param cod_carrinho código do carrinho que irá ter seus itens listados
 	 * @return lista de itens do carrinho
 	 */
    @Override
@@ -148,8 +151,8 @@ public List<Item_carrinho> get(int cod_carrinho) {
    
    /**
     * Exclui um item_pedido do carrinho
-    * @param cod_item_carrinho
-    * @return boolean
+    * @param cod_item_carrinho código do item a ser deletado
+    * @return boolean para sinalizar se foi bem sucedido
     */
    @Override
 public boolean delete(int cod_item_carrinho) {

@@ -36,8 +36,8 @@ public class PagamentoDAO implements BasePagamentoDAO {
 
     /**
      * Método que registra um novo pagamento no banco de dados
-     * @param pagamento
-     * @return boolean
+     * @param pagamento objeto pagamento a ser cadastrado
+     * @return boolean para sinalizar se foi bem sucedido
      */
     @Override
 	public boolean registrarPagamento(Pagamento pagamento) {
@@ -60,7 +60,7 @@ public class PagamentoDAO implements BasePagamentoDAO {
 
     /**
      * Lista todos os pagamentos disponiveis
-     * @return list
+     * @return lista com todos os pagamentos do sistema
      */
     @Override
 	public List<Pagamento> listarPagamentos() {
@@ -89,7 +89,7 @@ public class PagamentoDAO implements BasePagamentoDAO {
 
     /**
      * Pega os dados de um pagamento com base no cod_pagamento fornecido 
-     * @param cod_pagamento
+     * @param cod_pagamento código do pagamente a ser consultado
      * @return objeto pagamento
      */
     @Override
@@ -118,9 +118,9 @@ public class PagamentoDAO implements BasePagamentoDAO {
 
     /**
      * Atualiza o status do pagamento especificado
-     * @param cod_pagamento
-     * @param novoStatus
-     * @return boolean
+     * @param cod_pagamento código do pagamento a ser atulizado
+     * @param novoStatus novo statsu a ser registrado no banco
+     * @return boolean para sinalizar se foi bem sucedido
      */
     @Override
 	public boolean atualizarStatus(int cod_pagamento, String novoStatus) {
@@ -140,8 +140,8 @@ public class PagamentoDAO implements BasePagamentoDAO {
 
     /**
      * Exclui um pagamento com base no codigo fornecido
-     * @param cod_pagamento
-     * @return boolean
+     * @param cod_pagamento código do pagamento a ser excluido
+     * @return boolean para sinalizar se foi bem sucedido
      */
     @Override
 	public boolean excluirPagamento(int cod_pagamento) {

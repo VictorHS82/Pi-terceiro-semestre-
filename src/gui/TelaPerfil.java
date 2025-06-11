@@ -1,12 +1,21 @@
 package gui;
 
 import javax.swing.*;
+
 import banco_de_dados.ClienteDAO;
+import interfacesDAO.BaseClienteDAO;
 import objetos.Cliente;
 
+/**
+ * Classe que modela a tela de perfil
+ */
 public class TelaPerfil extends JPanel {
+    /**
+     * Construtor da tela de perfil
+     * @param codUsuario código do usuário cujo perfil será exibido
+     */
     public TelaPerfil(int codUsuario) {
-        	ClienteDAO usuarioDAO = new ClienteDAO();
+        	BaseClienteDAO usuarioDAO = new ClienteDAO();
         Cliente usuario = usuarioDAO.buscarCliente(codUsuario);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

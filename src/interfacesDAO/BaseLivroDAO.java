@@ -4,12 +4,15 @@ import java.util.List;
 
 import objetos.Livros;
 
+/**
+ * Interfacer de livroDAO
+ */
 public interface BaseLivroDAO {
 
 	/**
 	 * Cadastra um livro no banco de dados
-	 * @param livros recebe um novo objeto livro
-	 * @return true or false
+	 * @param livros objeto livro a ser cadastrado
+	 * @return boolean para sinalizar se foi bem sucedido
 	 */
 	boolean cadastrarLivro(Livros livros);
 
@@ -36,14 +39,13 @@ public interface BaseLivroDAO {
 	 * Atualiza os atributos de um livro
 	 * @param livro recebe objeto com os todos os parametros, e verifica quais colunas devem ser alteradas
 	 * @return linhasAfetadas mostra quantas infromações foram modificadas
-	 * @return false caso a operação falhe
 	 */
 	boolean atualizarLivro(Livros livro);
 
 	/**
 	 * Deleta um livro do banco de dados
 	 * @param cod_livro código do livro a ser deletado
-	 * @return linhasAfetadas quantida de linhas deletadas
+	 * @return boolean para sinalizar se foi bem sucedido
 	 */
 	boolean deletarLivro(int cod_livro);
 

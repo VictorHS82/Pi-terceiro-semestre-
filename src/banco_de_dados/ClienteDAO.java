@@ -5,6 +5,7 @@ import java.sql.*;
 import interfacesDAO.BaseClienteDAO;
 import objetos.Cliente;
 
+
 /**
  * Classe DAO para o controle de contas clientes
  */
@@ -25,14 +26,17 @@ public class ClienteDAO implements BaseClienteDAO {
     private static final String EXCLUIR = "DELETE FROM cliente"
     		+ " WHERE cod_cliente = ?";
 
+    /**
+     * Inciliza clientesDAO
+     */
     public ClienteDAO() {
         bd.getConnection();
     }
 
     /**
      * Cadastra uma nova conta de Cliente no banco de dados
-     * @param admin
-     * @return boolean
+     * @param cliente objeto cliente a ser cadastrado
+     * @return boolean para sinalizar se foi bem sucedido
      */
     @Override
 	public boolean cadastrarCliente(Cliente cliente) {
@@ -57,9 +61,9 @@ public class ClienteDAO implements BaseClienteDAO {
 
     /**
      * Valida as informações para login do usuário
-     * @param email
-     * @param senha
-     * @return boolean
+     * @param email email a ser validado
+     * @param senha senha a ser validada
+     * @return boolean para sinalizar se foi bem sucedida
      */
     @Override
 	public boolean validarLogin(String email, String senha) {
@@ -78,9 +82,9 @@ public class ClienteDAO implements BaseClienteDAO {
     }
 
     /**
-     * Atualiza as informações de uma conta Administradora
-     * @param admin
-     * @return boolean
+     * Atualiza as informações de uma conta Cliente
+     * @param cliente objeto cliente a ser atulizado
+     * @return boolean para sinalizar se foi bem sucedido
      */
     @Override
 	public boolean atualizarCliente(Cliente cliente) {
@@ -106,8 +110,8 @@ public class ClienteDAO implements BaseClienteDAO {
 
     /**
      * Busca uma conta cliente pelo código fornecido
-     * @param cod_admin
-     * @return Administrador
+     * @param cod_cliente código do cliente a ser buscado
+     * @return objeto cliente
      */
     @Override
 	public Cliente buscarCliente(int cod_cliente) {
@@ -135,8 +139,8 @@ public class ClienteDAO implements BaseClienteDAO {
 
     /**
      * Exclui um conta cliente pelo código fornecido
-     * @param cod_admin
-     * @return boolean
+     * @param cod_cliente código do cliente a ser excluído
+     * @return boolean para sinlizar se foi bem sucedido
      */
     @Override
 	public boolean excluirCliente(int cod_cliente) {

@@ -4,6 +4,9 @@ import java.util.List;
 
 import objetos.Livros;
 
+/**
+ * Interface de Pesdquisa
+ */
 public interface BasePesquisa {
 
 	/**

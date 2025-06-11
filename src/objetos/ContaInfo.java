@@ -4,23 +4,30 @@ package objetos;
  * Classe que modela a busca de informações das contas
  */
 public class ContaInfo {
-    private String tipoConta; // "Usuário" ou "Administrador"
+    /** Tipo da conta (Usuário ou Administrador) */
+    private String tipoConta;
+    /** ID único da conta */
     private int id;
+    /** Nome do titular da conta */
     private String nome;
+    /** Email do titular da conta */
     private String email;
+    /** Telefone do titular da conta */
     private String telefone;
+    /** Endereço do titular da conta */
     private String endereco;
-    private String criadoPor; // apenas se for administrador
+    /** Nome do administrador que criou a conta (apenas para contas de administrador) */
+    private String criadoPor;
 
     /**
      * Constructor de ContaInfo
-     * @param tipoConta
-     * @param id
-     * @param nome
-     * @param email
-     * @param telefone
-     * @param endereco
-     * @param criadoPor
+     * @param tipoConta tipo da conta a ser encontrada
+     * @param id id da conta
+     * @param nome nome da conta
+     * @param email email da conta
+     * @param telefone telefone da conta
+     * @param endereco endreco da conta
+     * @param criadoPor quem criou a conta
      */
     public ContaInfo(String tipoConta, int id, String nome, String email, String telefone, String endereco, String criadoPor) {
         this.tipoConta = tipoConta;
@@ -32,30 +39,58 @@ public class ContaInfo {
         this.criadoPor = criadoPor;
     }
 
+    /**
+     * Retorna o tipo da conta.
+     * @return String contendo o tipo da conta (Usuário ou Administrador)
+     */
     public String getTipoConta() {
         return tipoConta;
     }
 
+    /**
+     * Retorna o id da conta.
+     * @return int contendo o id da conta
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Retorna o nome da conta.
+     * @return String contendo o nome da conta
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Retorna o email da conta.
+     * @return String contendo o email da conta
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Retorna o telefone da conta.
+     * @return String contendo o telefone da conta
+     */
     public String getTelefone() {
         return telefone;
     }
 
+    /**
+     * Retorna o endereço da conta.
+     * @return String contendo o endereço da conta
+     */
     public String getEndereco() {
         return endereco;
     }
 
+    /**
+     * Retorna quem criou a conta (caso seja administrador).
+     * @return String contendo o nome de quem criou a conta
+     */
     public String getCriadoPor() {
         return criadoPor;
     }

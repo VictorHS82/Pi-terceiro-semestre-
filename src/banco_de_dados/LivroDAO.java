@@ -7,12 +7,7 @@ import java.util.List;
 import interfacesDAO.BaseLivroDAO;
 import objetos.Livros;
 
-/**
- * Classe DAO (Data Acess Object) da classe Livro.
- * Capaz de manipular a entidade livro do Banco de dados
- */
-
-public class LivroDAO implements BaseLivroDAO {
+class LivroDAO implements BaseLivroDAO{
 
 private final BD bd = new BD();
 
@@ -45,8 +40,8 @@ public LivroDAO() {
 
 /**
  * Cadastra um livro no banco de dados
- * @param livros recebe um novo objeto livro
- * @return true or false
+ * @param livros objeto livro a ser cadastrado
+ * @return boolean para sinalizar se foi bem sucedido
  */
 @Override
 public boolean cadastrarLivro(Livros livros) {
@@ -57,7 +52,7 @@ public boolean cadastrarLivro(Livros livros) {
 		preparedstatement.setString(i++, livros.getTitulo());
 		preparedstatement.setString(i++, livros.getAutor());
 		preparedstatement.setString(i++, livros.getDescricao());
-		preparedstatement.setString(i++, livros.getAnoPublicacao());
+		preparedstatement.setString(i++, livros.getAnopublicacao());
 		preparedstatement.setString(i++, livros.getIsbn());
 		preparedstatement.setString(i++, livros.getGenero());
 		preparedstatement.setString(i++, livros.getIdioma());
@@ -65,7 +60,7 @@ public boolean cadastrarLivro(Livros livros) {
 		preparedstatement.setLong(i++, livros.getPaginas());
 		preparedstatement.setInt(i++, livros.getQuantidade());
 		preparedstatement.setFloat(i++, livros.getPeso());
-		preparedstatement.setFloat(i++, livros.getPrecoUnid());
+		preparedstatement.setFloat(i++, livros.getPreco_unitario());
 		preparedstatement.setString(i++, livros.getImagem());
 		preparedstatement.executeUpdate();
 		bd.connection.commit();
@@ -204,8 +199,7 @@ public List<Livros> consultarEstoque() {
 /**
  * Atualiza os atributos de um livro
  * @param livro recebe objeto com os todos os parametros, e verifica quais colunas devem ser alteradas
- * @return linhasAfetadas mostra quantas infromações foram modificadas
- * @return false caso a operação falhe
+ * @return boolean para sinalizar se foi bem sucedido
  */
 @Override
 public boolean atualizarLivro(Livros livro) {
@@ -216,7 +210,7 @@ public boolean atualizarLivro(Livros livro) {
         stmt.setString(i++, livro.getTitulo());
         stmt.setString(i++, livro.getAutor());
         stmt.setString(i++, livro.getDescricao());
-        stmt.setString(i++, livro.getAnoPublicacao());
+        stmt.setString(i++, livro.getAnopublicacao());
         stmt.setString(i++, livro.getIsbn());
         stmt.setString(i++, livro.getGenero());
         stmt.setString(i++, livro.getIdioma());
@@ -224,7 +218,7 @@ public boolean atualizarLivro(Livros livro) {
         stmt.setInt(i++, livro.getPaginas());
         stmt.setInt(i++, livro.getQuantidade());
         stmt.setFloat(i++, livro.getPeso());
-        stmt.setFloat(i++, livro.getPrecoUnid());
+        stmt.setFloat(i++, livro.getPreco_unitario());
         stmt.setString(i++, livro.getImagem());
         stmt.setInt(i, livro.getCod_livro());
 
@@ -242,7 +236,7 @@ public boolean atualizarLivro(Livros livro) {
 /**
  * Deleta um livro do banco de dados
  * @param cod_livro código do livro a ser deletado
- * @return linhasAfetadas quantida de linhas deletadas
+ * @return boolean para sinalizar se foi bem sucedido
  */
 @Override
 public boolean deletarLivro(int cod_livro) {
