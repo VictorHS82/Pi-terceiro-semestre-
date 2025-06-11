@@ -4,7 +4,6 @@ import java.sql.*;
 /**
  * Classe genárica de conexão com banco de dados
  */
-
 public class BD {
    public Connection connection = null;
    private final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -12,12 +11,7 @@ public class BD {
    private final String URL = "jdbc:sqlserver://localhost:1433;database=" + DBNAME + ";encrypt=false";
    private final String LOGIN = "pi";
    private final String SENHA = "1234";
-   public static void main (String[] args) {
-	   // main com a única função é testar se a classe BD está funcionando
-	   BD bd = new BD();
-	   bd.getConnection();
-	   bd.close();   
-   }
+
    /**
     * Método responsavél pora realizar a conexão com o banco de dados
     * @return true caso se conecte

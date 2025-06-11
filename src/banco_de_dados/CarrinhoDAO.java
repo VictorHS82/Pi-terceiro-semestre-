@@ -32,6 +32,9 @@ public class CarrinhoDAO implements BaseCarrinhoDAO {
 	private static String excluirCarrinho = "DELETE FROM carrinho"
 			+" WHERE cod_carrinho = ?";
 	
+    /**
+     * Iniciliazado CarrinhoDAO
+     */
 	public CarrinhoDAO() {
 		bd.getConnection();
 	}

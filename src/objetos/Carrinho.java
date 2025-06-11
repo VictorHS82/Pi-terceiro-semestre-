@@ -9,8 +9,8 @@ public class Carrinho {
 	
 	/**
 	 * Constructor da classe Carrinho
-	 * @param cod_carrinho
-	 * @param cod_cliente
+	 * @param cod_carrinho código do carrinho
+	 * @param cod_cliente código do cliente quê é dono do carrinho
 	 */
 	public Carrinho(int cod_carrinho, int cod_cliente) {
 		super();

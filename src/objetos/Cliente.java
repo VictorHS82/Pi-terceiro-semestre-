@@ -8,6 +8,16 @@ public class Cliente extends Usuario {
 	private String endereco;
 	private String telefone;
 
+/**
+ * Constructor da classe cliente
+ * @param cod_usuario
+ * @param nome
+ * @param senha
+ * @param email
+ * @param cpf
+ * @param endereco
+ * @param telefone
+ */
 	public Cliente(int cod_usuario, String nome, String senha, String email, String cpf, String endereco, String telefone) {
 		super(cod_usuario, nome, senha, email);
 		this.cpf = cpf;

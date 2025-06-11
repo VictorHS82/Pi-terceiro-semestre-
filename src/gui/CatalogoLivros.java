@@ -26,6 +26,11 @@ public class CatalogoLivros extends JPanel {
 
     private JPanel panelCatalogo;
 
+    /**
+     * Inicilizador da classe Catalogo livros
+     * @param mainFrame mainframe quê conecta as telas
+     * @param codClienteAtual código atual do cliente quê está usando o sistema
+     */
     public CatalogoLivros(MainFrame mainFrame, int codClienteAtual) {
         this.mainFrame = mainFrame;
         this.codClienteAtual = codClienteAtual;
