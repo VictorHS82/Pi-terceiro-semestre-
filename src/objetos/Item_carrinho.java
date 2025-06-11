@@ -1,24 +1,32 @@
 package objetos;
 
 /**
- * Classe que representa um item no carrinho
+ * Classe que representa um item no carrinho de compras.
+ * Esta classe mantém informações sobre um livro específico adicionado ao carrinho,
+ * incluindo sua quantidade e preço atual.
  */
 public class Item_carrinho{
+	/** Código único do item no carrinho */
 	private int cod_item_carrinho;
+	/** Código do carrinho ao qual o item pertence */
 	private int cod_carrinho;
+	/** Código do livro adicionado ao carrinho */
 	private int cod_livro;
+	/** Nome do livro adicionado ao carrinho */
 	private String nome_livro;
+	/** Quantidade do livro no carrinho */
 	private int quantidade;
+	/** Preço unitário do livro no momento da adição ao carrinho */
 	private float preco;
 
 	/**
 	 * Constructor da classe item_carrinho
-	 * @param cod_item_carrinho
-	 * @param cod_carrinho
-	 * @param cod_livro
-	 * @param nome_livro
-	 * @param quantidade
-	 * @param preco
+	 * @param cod_item_carrinho código único do item no carrinho
+	 * @param cod_carrinho código do carrinho ao qual o item pertence
+	 * @param cod_livro código do livro adicionado ao carrinho
+	 * @param nome_livro nome do livro adicionado ao carrinho
+	 * @param quantidade quantidade do livro no carrinho
+	 * @param preco preço unitário do livro no momento da adição ao carrinho
 	 */
 	public Item_carrinho(int cod_item_carrinho, int cod_carrinho, int cod_livro, String nome_livro, int quantidade,
 			float preco) {

@@ -4,7 +4,9 @@ package objetos;
  * Classe que modela o Carrinho
  */
 public class Carrinho {
+	/** Código único do carrinho */
 	private int cod_carrinho;
+	/** Código do cliente dono do carrinho */
 	private int cod_cliente;
 	
 	/**

@@ -10,6 +10,10 @@ import objetos.Cliente;
  * Classe que modela a tela de perfil
  */
 public class TelaPerfil extends JPanel {
+    /**
+     * Construtor da tela de perfil
+     * @param codUsuario código do usuário cujo perfil será exibido
+     */
     public TelaPerfil(int codUsuario) {
         	BaseClienteDAO usuarioDAO = new ClienteDAO();
         Cliente usuario = usuarioDAO.buscarCliente(codUsuario);

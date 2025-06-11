@@ -1,22 +1,26 @@
 package objetos;
 
 /**
- * Representa um cliente do sistema, com informações pessoais e ações relacionadas a compras.
+ * Classe que representa um cliente do sistema, com informações pessoais e ações relacionadas a compras.
+ * Esta classe herda de Usuario e adiciona informações específicas de cliente como CPF, endereço e telefone.
  */
 public class Cliente extends Usuario {
+	/** CPF do cliente para identificação */
 	private String cpf;
+	/** Endereço completo do cliente para entrega */
 	private String endereco;
+	/** Telefone do cliente para contato */
 	private String telefone;
 
 /**
  * Constructor da classe cliente
- * @param cod_usuario
- * @param nome
- * @param senha
- * @param email
- * @param cpf
- * @param endereco
- * @param telefone
+ * @param cod_usuario código único do cliente no sistema
+ * @param nome nome completo do cliente
+ * @param senha senha de acesso do cliente
+ * @param email email do cliente para contato
+ * @param cpf CPF do cliente para identificação
+ * @param endereco endereço completo do cliente para entrega
+ * @param telefone telefone do cliente para contato
  */
 	public Cliente(int cod_usuario, String nome, String senha, String email, String cpf, String endereco, String telefone) {
 		super(cod_usuario, nome, senha, email);

@@ -7,6 +7,11 @@ import java.awt.*;
  * Classe para o controle das telas relacionadas ao Painel Administrativo
  */
 public class PainelAdmin extends JPanel {
+    /**
+     * Construtor do painel administrativo
+     * @param mainFrame frame principal da aplicação
+     * @param codClienteAtual código do administrador logado
+     */
     public PainelAdmin(MainFrame mainFrame, int codClienteAtual) {
         setLayout(new BorderLayout());
 

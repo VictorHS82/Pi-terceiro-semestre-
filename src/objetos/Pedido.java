@@ -5,12 +5,19 @@ package objetos;
  * a quantidade solicitada, o carrinho e os códigos relacionados.
  */
 public class Pedido {
+	/** Código único do pedido */
 	private int cod_pedido;
+	/** Código do cliente que fez o pedido */
 	private int cod_cliente;
+	/** Valor do desconto aplicado ao pedido */
 	private float desconto;
+	/** Valor do frete do pedido */
 	private float valor_frete;
+	/** Subtotal do pedido (sem desconto e frete) */
 	private float subtotal;
+	/** Valor total do pedido (com desconto e frete) */
 	private float valor_total;
+	/** Status atual do pedido (ex: em processamento, enviado) */
 	private String status;
 
 	/**

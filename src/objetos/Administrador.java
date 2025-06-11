@@ -5,6 +5,7 @@ package objetos;
  */
 public class Administrador extends Usuario {
 
+	/** Nome do administrador que criou esta conta */
 	private String criado_por;
 
 	/**

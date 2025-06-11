@@ -5,10 +5,15 @@ package objetos;
  * incluindo o código, data, valor e forma de pagamento.
  */
 public class Pagamento {
+	/** Código único do pagamento */
 	private int cod_pagamento;
+	/** Código do pedido associado ao pagamento */
 	private int cod_pedido;
+	/** Valor total da compra */
 	private float valor_compra;
+	/** Forma de pagamento utilizada (ex: cartão, boleto) */
 	private String forma_pagamento;
+	/** Status atual do pagamento (ex: pendente, aprovado) */
 	private String status;
 
 	/**

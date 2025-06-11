@@ -1,7 +1,7 @@
 package gui;
 
 import banco_de_dados.ContasInfoDAO;
-import interfacesDAO.BaseContasInfoDAO;
+import interfacesDAO.*;;
 import objetos.ContaInfo;
 
 import javax.swing.*;
@@ -14,9 +14,15 @@ import java.util.List;
  */
 public class PainelContas extends JPanel {
 
+    /** Tabela que exibe as informações das contas */
     private JTable tabela;
+    /** Modelo de dados da tabela */
     private DefaultTableModel modelo;
 
+    /**
+     * Construtor do painel de contas
+     * Inicializa a interface e carrega os dados das contas
+     */
     public PainelContas() {
         setLayout(new BorderLayout());
 

@@ -4,8 +4,11 @@ package objetos;
  * Classe para o controle de filtros para pesquisa
  */
 public class Filtros {
+	/** Preço máximo para filtrar livros */
 	private float precoProcurado;
+	/** Formato desejado para filtrar livros */
 	private String formatoProcurado;
+	/** Número mínimo de páginas para filtrar livros */
 	private int paginaProcurada;
 	
 	/**

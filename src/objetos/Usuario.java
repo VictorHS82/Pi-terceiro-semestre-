@@ -4,9 +4,13 @@ package objetos;
  * Classe abstrata que modela as informações básicas das contas do sistema
  */
 public abstract class Usuario {
+    /** Código único do usuário no sistema */
     private int cod_usuario;
+	/** Nome completo do usuário */
 	private String nome;
+	/** Senha de acesso do usuário */
 	private String senha;
+	/** Email do usuário para contato */
 	private String email;
 	
 	/**

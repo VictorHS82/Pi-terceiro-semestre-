@@ -5,9 +5,34 @@ package objetos;
  * ISBN, descrição, entre outras características.
  */
 public class Livros {
-	private String titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato, imagem;
-	private int cod_livro, paginas, quantidade;
-	private float peso, preco_unitario;
+	/** Título do livro */
+	private String titulo;
+	/** Autor do livro */
+	private String autor;
+	/** Descrição detalhada do livro */
+	private String descricao;
+	/** Ano de publicação do livro */
+	private String anopublicacao;
+	/** ISBN do livro */
+	private String isbn;
+	/** Gênero literário do livro */
+	private String genero;
+	/** Idioma do livro */
+	private String idioma;
+	/** Formato do livro (ex: físico, digital) */
+	private String formato;
+	/** Caminho para a imagem de capa do livro */
+	private String imagem;
+	/** Código único do livro */
+	private int cod_livro;
+	/** Número de páginas do livro */
+	private int paginas;
+	/** Quantidade disponível em estoque */
+	private int quantidade;
+	/** Peso do livro em gramas */
+	private float peso;
+	/** Preço unitário do livro */
+	private float preco_unitario;
 	
 	/**
 	 * Constructor da classe livro

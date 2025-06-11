@@ -4,13 +4,20 @@ package objetos;
  * Classe que modela a busca de informações das contas
  */
 public class ContaInfo {
-    private String tipoConta; // "Usuário" ou "Administrador"
+    /** Tipo da conta (Usuário ou Administrador) */
+    private String tipoConta;
+    /** ID único da conta */
     private int id;
+    /** Nome do titular da conta */
     private String nome;
+    /** Email do titular da conta */
     private String email;
+    /** Telefone do titular da conta */
     private String telefone;
+    /** Endereço do titular da conta */
     private String endereco;
-    private String criadoPor; // apenas se for administrador
+    /** Nome do administrador que criou a conta (apenas para contas de administrador) */
+    private String criadoPor;
 
     /**
      * Constructor de ContaInfo

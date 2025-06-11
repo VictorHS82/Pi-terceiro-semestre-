@@ -5,10 +5,15 @@ package objetos;
  */
 public class Item_pedido {
 
+	/** Código único do item no pedido */
 	private int cod_item_pedido;
+	/** Código do pedido ao qual o item pertence */
 	private int cod_pedido;
+	/** Código do livro no pedido */
 	private int cod_livro;
+	/** Quantidade do livro no pedido */
 	private int quantidade;
+	/** Preço do livro no momento da compra */
 	private float preco_na_compra;
 
 	/**
