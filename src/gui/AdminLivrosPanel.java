@@ -12,6 +12,7 @@ import objetos.Livros;
 /**
  * Classe para a tela de Administrador
  */
+@SuppressWarnings("serial")
 public class AdminLivrosPanel extends JPanel {
     /**
      * Recebe um obbjeto JTbable   

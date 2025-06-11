@@ -27,7 +27,7 @@ public class PainelContas extends JPanel {
         setLayout(new BorderLayout());
 
         modelo = new DefaultTableModel(
-            new Object[]{"Tipo", "ID", "Nome", "Email", "Telefone", "Endereço", "Criado Por"}, 0
+            new Object[]{"Tipo", "ID", "Nome", "Email", "Telefone", "Endereco", "Criado Por"}, 0
         );
 
         tabela = new JTable(modelo);
@@ -40,8 +40,8 @@ public class PainelContas extends JPanel {
      * Carrega as informações de contas
      */
     private void carregarContas() {
-        BaseContasInfoDAO dao = new ContasInfoDAO();
-        List<ContaInfo> contas = dao.listarTodasContas();
+    	 ContasInfoDAO dao = new ContasInfoDAO();
+         List<ContaInfo> contas = dao.listarTodasContas();
 
         modelo.setRowCount(0); // limpar
 

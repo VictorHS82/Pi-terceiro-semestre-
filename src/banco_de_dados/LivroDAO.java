@@ -7,7 +7,7 @@ import java.util.List;
 import interfacesDAO.BaseLivroDAO;
 import objetos.Livros;
 
-class LivroDAO implements BaseLivroDAO{
+public class LivroDAO implements BaseLivroDAO{
 
 private final BD bd = new BD();
 
@@ -15,9 +15,9 @@ private final BD bd = new BD();
 //cosnultar estoque ecnontra somente as informações da ID, título e quantidade em estoque de um livro 
 //listar tudo pega todas as infromações disponivéis da entidade livro
  private static String cadastrar_livro = " INSERT INTO LIVRO "
-		 + "(titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato,"
+		 + "(cod_livro, titulo, autor, descricao, anopublicacao, isbn, genero, idioma, formato,"
 		 + "paginas, quantidade, peso, preco_unitario, imagem)"
-		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
  
  private static String consultar_livro = " SELECT * FROM LIVRO "
 		 + "WHERE cod_livro = ?";
@@ -46,9 +46,11 @@ public LivroDAO() {
 @Override
 public boolean cadastrarLivro(Livros livros) {
 	String query = cadastrar_livro;
+	BD bd = new BD();
 	try { PreparedStatement preparedstatement = bd.connection.prepareStatement(query);
 	
 		int i = 1;
+		preparedstatement.setInt(i++, livros.getCod_livro());
 		preparedstatement.setString(i++, livros.getTitulo());
 		preparedstatement.setString(i++, livros.getAutor());
 		preparedstatement.setString(i++, livros.getDescricao());
@@ -204,7 +206,7 @@ public List<Livros> consultarEstoque() {
 @Override
 public boolean atualizarLivro(Livros livro) {
     String sql = alterar_livro;
-
+    BD bd = new BD();
     try (PreparedStatement stmt = bd.connection.prepareStatement(sql)) {
         int i = 1;
         stmt.setString(i++, livro.getTitulo());
@@ -241,7 +243,7 @@ public boolean atualizarLivro(Livros livro) {
 @Override
 public boolean deletarLivro(int cod_livro) {
         String query = deletar_livro;
-
+        BD bd = new BD();
         try (PreparedStatement stmt = bd.connection.prepareStatement(query)) {
             stmt.setInt(1, cod_livro);
 

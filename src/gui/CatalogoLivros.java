@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.*;
 
 import banco_de_dados.*;
+import interfacesDAO.BaseLivroDAO;
 import interfacesDAO.BaseCarrinhoDAO;
 import interfacesDAO.BaseLivroDAO;
 import interfacesDAO.BasePagamentoDAO;

@@ -17,7 +17,7 @@ public class PainelAdmin extends JPanel {
 
         JTabbedPane abasAdmin = new JTabbedPane();
         abasAdmin.addTab("Livros", new AdminLivrosPanel());
-        abasAdmin.addTab("Contas", new PainelContas());
+        //abasAdmin.addTab("Contas", new PainelContas());
         abasAdmin.addTab("Pedidos", new PainelPedidos());
         abasAdmin.addTab("Pagamentos", new PainelPagamentos());
 
