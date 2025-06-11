@@ -1,7 +1,7 @@
 package gui;
 
 import banco_de_dados.ContasInfoDAO;
-import interfacesDAO.*;;
+import interfacesDAO.*;
 import objetos.ContaInfo;
 
 import javax.swing.*;

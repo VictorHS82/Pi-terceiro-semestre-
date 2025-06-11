@@ -7,9 +7,6 @@ import java.util.List;
 import interfacesDAO.BaseContasInfoDAO;
 import objetos.ContaInfo;
 
-/**
- * Classe DAO para a exibição de informação das contas
- */
 public class ContasInfoDAO implements BaseContasInfoDAO {
 
     private final BD bd = new BD();

@@ -17,6 +17,9 @@ public class PainelPagamentos extends JPanel {
     private JTable tabela;
     private DefaultTableModel modelo;
 
+    /**
+     * Método quê modela o painel pagamentos
+     */
     public PainelPagamentos() {
         setLayout(new BorderLayout());
 

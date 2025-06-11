@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
-import banco_de_dados.LivroDAO;
+import banco_de_dados.*;
 import interfacesDAO.BaseLivroDAO;
 import objetos.Livros;
 
@@ -13,8 +13,17 @@ import objetos.Livros;
  * Classe para a tela de Administrador
  */
 public class AdminLivrosPanel extends JPanel {
-    private JTable tabela;
+    /**
+     * Recebe um obbjeto JTbable   
+     */
+	private JTable tabela;
+	/**
+	 * Recebe lista de livros
+	 */
     private DefaultListModel<Livros> model;
+    /**
+     * Recebe um livroDAO
+     */
     private BaseLivroDAO livroDAO;
 
     /**

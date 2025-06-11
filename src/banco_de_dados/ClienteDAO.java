@@ -26,6 +26,9 @@ public class ClienteDAO implements BaseClienteDAO {
     private static final String EXCLUIR = "DELETE FROM cliente"
     		+ " WHERE cod_cliente = ?";
 
+    /**
+     * Inciliza clientesDAO
+     */
     public ClienteDAO() {
         bd.getConnection();
     }

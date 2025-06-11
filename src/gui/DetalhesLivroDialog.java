@@ -9,7 +9,17 @@ import interfacesDAO.BaseCarrinhoDAO;
 
 import java.awt.*;
 
+/**
+ * Classe que modela detalhes do livro
+ */
 public class DetalhesLivroDialog extends JDialog {
+	/**
+	 * Constructor de DatelhesLivroDialog
+	 * @param parent classe a ser usada
+	 * @param livro objeto livro
+	 * @param carrinhoDAO objeto CarrinhoDAO
+	 * @param codClienteAtual código do cliennte na sessão atual
+	 */
     public DetalhesLivroDialog(JFrame parent, Livros livro, BaseCarrinhoDAO carrinhoDAO, int codClienteAtual) {
         super(parent, "Detalhes do Livro", true);
         setLayout(new BorderLayout());

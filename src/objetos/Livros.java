@@ -36,19 +36,20 @@ public class Livros {
 	
 	/**
 	 * Constructor da classe livro
-	 * @param cod_livro
-	 * @param titulo
-	 * @param autor
-	 * @param descricao
-	 * @param anopublicacao
-	 * @param isbn
-	 * @param genero
-	 * @param idioma
-	 * @param formato
-	 * @param paginas
-	 * @param quantidade
-	 * @param peso
-	 * @param preco_unitario
+	 * @param cod_livro codigo livro
+	 * @param titulo titulo livro
+	 * @param autor autor livro
+	 * @param descricao descrição livro
+	 * @param anopublicacao ano de publicação
+	 * @param isbn isbn do livro
+	 * @param genero gênero do livro
+	 * @param idioma idioma do livro
+	 * @param formato formato do livro (digital, fisico ou audio)
+	 * @param paginas quantidade de páginas
+	 * @param quantidade quantidade em estoque
+	 * @param peso peso do livro
+	 * @param preco_unitario preco de cada unidade
+	 * @param imagem path da imagem
 	 */
 	public Livros(int cod_livro, String titulo, String autor, String descricao, String anopublicacao, String isbn,
 			String genero, String idioma, String formato, int paginas, int quantidade, float peso, float preco_unitario, String imagem) {

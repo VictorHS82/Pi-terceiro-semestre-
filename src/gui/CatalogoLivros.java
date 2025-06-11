@@ -17,13 +17,33 @@ import objetos.*;
  * Classe que modela a tela pricnipal dp catolog de livros
  */
 public class CatalogoLivros extends JPanel {
-    private final MainFrame mainFrame;
+    /**
+     * Recebe mainFrame
+     */
+	private final MainFrame mainFrame;
+	/**
+	 * Recebe LivroDAO
+	 */
     private final BaseLivroDAO livroDAO;
+    /**
+     * Recebe carrinhoDAO
+     */
     private final BaseCarrinhoDAO carrinhoDAO;
+    /**
+     * Recebe pedidoDAO
+     */
     private final BasePedidoDAO pedidoDAO;
+    /**
+     * Recebe pagamentoDAO
+     */
     private final BasePagamentoDAO pagamentoDAO;
+    /**
+     * Recebe código cliente
+     */
     private final int codClienteAtual;
-
+    /**
+     * Recebe painelCatalogo
+     */
     private JPanel panelCatalogo;
 
     /**

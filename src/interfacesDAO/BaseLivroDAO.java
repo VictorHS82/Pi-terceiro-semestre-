@@ -39,7 +39,6 @@ public interface BaseLivroDAO {
 	 * Atualiza os atributos de um livro
 	 * @param livro recebe objeto com os todos os parametros, e verifica quais colunas devem ser alteradas
 	 * @return linhasAfetadas mostra quantas infromações foram modificadas
-	 * @return boolean para sinalizar se foi bem sucedido
 	 */
 	boolean atualizarLivro(Livros livro);
 

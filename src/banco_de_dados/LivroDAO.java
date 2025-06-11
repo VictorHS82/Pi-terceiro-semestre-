@@ -7,12 +7,7 @@ import java.util.List;
 import interfacesDAO.BaseLivroDAO;
 import objetos.Livros;
 
-/**
- * Classe DAO (Data Acess Object) da classe Livro.
- * Capaz de manipular a entidade livro do Banco de dados
- */
-
-public class LivroDAO implements BaseLivroDAO{
+class LivroDAO implements BaseLivroDAO{
 
 private final BD bd = new BD();
 
@@ -204,7 +199,6 @@ public List<Livros> consultarEstoque() {
 /**
  * Atualiza os atributos de um livro
  * @param livro recebe objeto com os todos os parametros, e verifica quais colunas devem ser alteradas
- * @return linhasAfetadas mostra quantas infromações foram modificadas
  * @return boolean para sinalizar se foi bem sucedido
  */
 @Override

@@ -1,7 +1,7 @@
 package objetos;
 
 /**
- * Classe para o controle de filtros para pesquisa
+ * Classe para filtros
  */
 public class Filtros {
 	/** Preço máximo para filtrar livros */

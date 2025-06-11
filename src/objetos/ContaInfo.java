@@ -21,13 +21,13 @@ public class ContaInfo {
 
     /**
      * Constructor de ContaInfo
-     * @param tipoConta
-     * @param id
-     * @param nome
-     * @param email
-     * @param telefone
-     * @param endereco
-     * @param criadoPor
+     * @param tipoConta tipo da conta a ser encontrada
+     * @param id id da conta
+     * @param nome nome da conta
+     * @param email email da conta
+     * @param telefone telefone da conta
+     * @param endereco endreco da conta
+     * @param criadoPor quem criou a conta
      */
     public ContaInfo(String tipoConta, int id, String nome, String email, String telefone, String endereco, String criadoPor) {
         this.tipoConta = tipoConta;

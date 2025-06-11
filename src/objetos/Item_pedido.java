@@ -18,11 +18,11 @@ public class Item_pedido {
 
 	/**
 	 * Constructor da classe item_pedido
-	 * @param cod_item_pedido
-	 * @param cod_pedido
-	 * @param cod_livro
-	 * @param quantidade
-	 * @param preco_na_compra
+	 * @param cod_item_pedido código do item pedido
+	 * @param cod_pedido código do pedido
+	 * @param cod_livro código do livro
+	 * @param quantidade quantidade no carrinho
+	 * @param preco_na_compra preco ao adicionar o item no carrinho
 	 */
 	public Item_pedido(int cod_item_pedido, int cod_pedido, int cod_livro, int quantidade, float preco_na_compra) {
 		super();

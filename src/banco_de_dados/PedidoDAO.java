@@ -36,6 +36,9 @@ public class PedidoDAO implements BasePedidoDAO {
 	    		+ " SET status = ?" 
 	    		+ " WHERE cod_pagamento = ?";
 	    
+       /**
+        * Inicia a classe
+        */
 	    public PedidoDAO() {
 	        bd.getConnection();
 	    }

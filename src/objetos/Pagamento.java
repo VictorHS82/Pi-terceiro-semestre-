@@ -1,8 +1,7 @@
 package objetos;
 
 /**
- * Representa as informações de um pagamento realizado em uma compra,
- * incluindo o código, data, valor e forma de pagamento.
+ * Classe que modela pagamento
  */
 public class Pagamento {
 	/** Código único do pagamento */
@@ -18,11 +17,11 @@ public class Pagamento {
 
 	/**
 	 * Constructor da classe pagamento
-	 * @param cod_pagamento
-	 * @param cod_pedido
-	 * @param valor_compra
-	 * @param forma_pagamento
-	 * @param status
+	 * @param cod_pagamento código pagamento
+	 * @param cod_pedido codigo pedido
+	 * @param valor_compra valor da compra
+	 * @param forma_pagamento forma de pagamento
+	 * @param status status do pagamento
 	 */
 	public Pagamento(int cod_pagamento, int cod_pedido, float valor_compra, String forma_pagamento, String status) {
 		super();

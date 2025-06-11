@@ -14,9 +14,18 @@ import java.util.List;
  */
 public class PainelPedidos extends JPanel {
 
-    private JTable tabela;
+    /**
+     * Recebe JTable
+     */
+	private JTable tabela;
+	/**
+	 * Recebe DefaultTableModel
+	 */
     private DefaultTableModel modelo;
 
+    /**
+     * Classe que modela o painel pedido
+     */
     public PainelPedidos() {
         setLayout(new BorderLayout());
 

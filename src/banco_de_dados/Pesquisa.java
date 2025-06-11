@@ -14,6 +14,9 @@ public class Pesquisa implements BasePesquisa {
 
 	private final BD bd;
 	
+    /**
+     * Inicia classe pesquisa
+     */
 	public Pesquisa(){
 		bd = new BD();
 		bd.getConnection();
